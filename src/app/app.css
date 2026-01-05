@@ -1,0 +1,17 @@
+/* COMPONENT-LEVEL STYLES */
+h1 {
+  color: lightgreen;
+  text-align: center;
+}
+
+h2, p {
+  color: #fff;
+}
+
+#name {
+  color: lightblue;
+}
+
+.punctuation {
+  color: #fff;
+}
