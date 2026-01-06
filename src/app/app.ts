@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
+
 export class App {
   name : String = "Faariz"
+  favouriteFilm: string = 'IT';
+  yearRelease: number = 2017;
 }
