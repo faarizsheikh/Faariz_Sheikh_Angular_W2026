@@ -8,7 +8,4 @@ import { Component } from '@angular/core';
 })
 
 export class App {
-  name : String = "Faariz"
-  favouriteFilm: string = 'IT';
-  yearRelease: number = 2017;
 }
