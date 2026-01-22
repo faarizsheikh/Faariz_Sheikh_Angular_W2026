@@ -1,0 +1,85 @@
+<!-- app.html -->
+
+<div class="container">
+  <h1>TV SHOWS & MOVIES</h1>
+
+  @for (film of films; track film.id) {
+  <div class="film-card">
+    <h2>{{ film.title }} ({{ film.yearReleased }})</h2>
+    <br><br>
+
+    <div class="meta-row">
+      <p><span class="label-name">ID:</span>{{ film.id }}</p>
+      <p><span class="label-name">Type:</span>{{ film.type }}</p>
+    </div>
+    <br>
+
+    <p><span class="label-name">Description:</span><br>{{ film.description }}</p><br>
+    <p><span class="label-name">Genres:</span><br>{{ film.genre }}</p><br>
+
+    <div class="meta-row">
+      @if (film.movie_sequence) {
+      <p><span class="label-name">Sequence in Franchise:</span>{{ film.movie_sequence }}</p>
+      }
+
+      @if (film.seasons) {
+      <p><span class="label-name"># of Seasons:</span>{{ film.seasons }}</p>
+      }
+
+      @if (film.total_episodes) {
+      <p><span class="label-name">Total Episodes:</span>{{ film.total_episodes }}</p>
+      }
+
+      @if (film.mpaa_rating) {
+      <p><span class="label-name">MPAA Rating:</span>{{ film.mpaa_rating }}</p>
+      }
+
+      @if (film.tv_rating) {
+      <p><span class="label-name">TV Rating:</span>{{ film.tv_rating }}</p>
+      }
+
+      <p><span class="label-name">Watch Rating:</span>{{ film.viewer_rating }} / 5</p>
+    </div>
+    <br>
+
+    <p><span class="label-name">Streaming:</span>{{ film.streaming }}</p><br>
+    <p><span class="label-name">Producer:</span>{{ film.producer }}</p><br>
+    <p><span class="label-name">Director:</span>{{ film.director }}</p><br>
+    <p><span class="label-name">Writer:</span>{{ film.writer }}</p><br>
+
+    <div class="meta-row">
+      @if (film.based_on) {
+      <p><span class="label-name">Based on:</span>{{ film.based_on }}</p>
+      }
+      @if (film.creator) {
+      <p><span class="label-name">Creator:</span>{{ film.creator }}</p>
+      }
+    </div>
+    <br>
+
+    <p><span class="label-name">Starring:</span>{{ film.starring }}</p>
+
+    @if (film.image_url) {
+    <p><span class="label-name">Image:</span>{{ film.image_url }}</p> <!-- Soon, will be img element tag -->
+    }
+    <br>
+
+    <p><span class="label-name">Notes:</span>{{ film.notes ? film.notes : 'N/A' }}</p><br />
+
+    <p class="status-row">
+      <span class="label-name">Status:</span>
+      <span [ngClass]="{
+      'status-not-started': Status(film) === 'not-started',
+      'status-watching': Status(film) === 'watching',
+      'status-finished': Status(film) === 'finished'
+    }">
+        {{ Status(film) === 'not-started' ? 'Not Started' : (Status(film) === 'watching' ? 'Watching' : 'Finished') }}
+      </span>
+    </p>
+
+    <button (click)="toggleStatus(film)" class="toggle-button">
+      Toggle Status
+    </button>
+  </div>
+  }
+</div>
