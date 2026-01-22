@@ -25,5 +25,5 @@ export interface MyData extends ExtraInfo {
   starring: string;
   is_started: boolean;
   is_finished: boolean;
-  image_url?: string; /* I know we will need this to be mandatory later. */
+  image_url: string;
 }

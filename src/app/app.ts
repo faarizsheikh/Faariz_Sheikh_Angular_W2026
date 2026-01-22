@@ -4,9 +4,10 @@ import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [NgClass],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrls: ['./app.scss']
 })
 
 export class App {
@@ -39,7 +40,7 @@ export class App {
         "This was a tense and emotionally engaging horror film that blends genuine scares with " +
         "strong character development and nostalgic small-town atmosphere. " +
         "The young cast delivers memorable performances, and Pennywise is both terrifying and oddly captivating.",
-      image_url: ""
+      image_url: "assets/it-2017.jpeg"
     },
 
     {
@@ -68,7 +69,7 @@ export class App {
         "Keanu Reeves's controlled fury and the artistic violence scenes make the " +
         "revenge story compelling. The underworld setting and high stakes add tension while delivering " +
         "satisfying cinematic action.",
-      image_url: ""
+      image_url: "assets/john-wick-2014.jpeg"
     },
 
     {
@@ -100,7 +101,7 @@ export class App {
         "emotional depth, like when a child flips him the middle finger, he takes the balloon and lets it go, " +
         "briefly looks at him with raised eyebrows and a tilted head, then returns his gaze with a challenging " +
         "expression while giving both middle fingers back.",
-      image_url: ""
+      image_url: "assets/filth-2013.jpeg"
     },
 
     {
@@ -131,7 +132,7 @@ export class App {
         "The young cast brings energy and charm, making the supernatural elements exciting. " +
         "The show balances tension and wonder, leaving viewers like myself with eager " +
         "for each new episode's twists.",
-      image_url: ""
+      image_url: "assets/locke-and-key-2020.jpeg"
     },
 
     {
@@ -163,7 +164,7 @@ export class App {
         "with supernatural suspense. The  cast delivers standout performances, making each character " +
         "memorable and relatable. Its mix of humour, horror, and heart creates a captivating series " +
         "that hooks viewers like myself from start to finish.",
-      image_url: ""
+      image_url: "assets/stranger-things-2016.jpeg"
     },
 
     {
@@ -194,9 +195,10 @@ export class App {
         "I love how it balances humor with touching family dynamics, making the characters feel " +
         "authentic and relatable. It delivers lighthearted fun while offering insight into " +
         "Sheldon's unique perspective on the world.",
-      image_url: ""
+      image_url: "assets/young-sheldon-2017.jpeg"
     },
   ];
+
 
   Status(film: MyData): 'not-started' | 'watching' | 'finished' {
     if (!film.is_started && !film.is_finished) return 'not-started';

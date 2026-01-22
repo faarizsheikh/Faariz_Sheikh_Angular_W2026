@@ -6,6 +6,7 @@
   @for (film of films; track film.id) {
   <div class="film-card">
     <h2>{{ film.title }} ({{ film.yearReleased }})</h2>
+    <img [src]="film.image_url" alt="{{ film.title }} image" class="game-image" />
     <br><br>
 
     <div class="meta-row">
@@ -39,8 +40,7 @@
       }
 
       <p><span class="label-name">Watch Rating:</span>{{ film.viewer_rating }} / 5</p>
-    </div>
-    <br>
+    </div><br>
 
     <p><span class="label-name">Streaming:</span>{{ film.streaming }}</p><br>
     <p><span class="label-name">Producer:</span>{{ film.producer }}</p><br>
@@ -54,15 +54,9 @@
       @if (film.creator) {
       <p><span class="label-name">Creator:</span>{{ film.creator }}</p>
       }
-    </div>
-    <br>
+    </div><br>
 
     <p><span class="label-name">Starring:</span>{{ film.starring }}</p>
-
-    @if (film.image_url) {
-    <p><span class="label-name">Image:</span>{{ film.image_url }}</p> <!-- Soon, will be img element tag -->
-    }
-    <br>
 
     <p><span class="label-name">Notes:</span>{{ film.notes ? film.notes : 'N/A' }}</p><br />
 
