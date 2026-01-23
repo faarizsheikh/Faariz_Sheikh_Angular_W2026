@@ -12,6 +12,7 @@ import { NgClass, NgOptimizedImage } from '@angular/common';
 
 export class App {
 
+  // Array of Films: TV Shows & Movies
   films: MyData[] = [
     {
       id: 1, title: "IT",
@@ -198,13 +199,14 @@ export class App {
     },
   ];
 
-
+// This will get the current status:
   Status(film: MyData): 'not-started' | 'watching' | 'finished' {
     if (!film.is_started && !film.is_finished) return 'not-started';
     if (film.is_started && !film.is_finished) return 'watching';
     return 'finished';
   }
 
+  // This will be used for changing the status
   toggleStatus(film: MyData): void {
     const status = this.Status(film);
 
