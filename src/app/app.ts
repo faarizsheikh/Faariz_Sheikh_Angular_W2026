@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { MyData } from './models/my-data';
-import { NgClass } from '@angular/common';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, NgOptimizedImage],
   templateUrl: './app.html',
   styleUrls: ['./app.scss']
 })
@@ -13,7 +13,6 @@ import { NgClass } from '@angular/common';
 export class App {
 
   films: MyData[] = [
-    // I'll add imageURL to each later on, as I know from Angular last semester we'll need it later on.
     {
       id: 1, title: "IT",
       description:
@@ -132,7 +131,7 @@ export class App {
         "The young cast brings energy and charm, making the supernatural elements exciting. " +
         "The show balances tension and wonder, leaving viewers like myself with eager " +
         "for each new episode's twists.",
-      image_url: "assets/locke-and-key-2020.jpeg"
+      image_url: "assets/locke-and-key.jpeg"
     },
 
     {
@@ -164,7 +163,7 @@ export class App {
         "with supernatural suspense. The  cast delivers standout performances, making each character " +
         "memorable and relatable. Its mix of humour, horror, and heart creates a captivating series " +
         "that hooks viewers like myself from start to finish.",
-      image_url: "assets/stranger-things-2016.jpeg"
+      image_url: "assets/stranger-things.jpeg"
     },
 
     {
@@ -195,7 +194,7 @@ export class App {
         "I love how it balances humor with touching family dynamics, making the characters feel " +
         "authentic and relatable. It delivers lighthearted fun while offering insight into " +
         "Sheldon's unique perspective on the world.",
-      image_url: "assets/young-sheldon-2017.jpeg"
+      image_url: "assets/young-sheldon.jpeg"
     },
   ];
 

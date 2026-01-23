@@ -3,21 +3,28 @@
 <div class="container">
   <h1>TV SHOWS & MOVIES</h1>
 
-  @for (film of films; track film.id) {
+  @for (film of films; track film.id; let i = $index) {
+
   <div class="film-card">
+
+    <!-- Title, Year Released, and Image -->
     <h2>{{ film.title }} ({{ film.yearReleased }})</h2>
-    <img [src]="film.image_url" alt="{{ film.title }} image" class="game-image" />
+    <img [ngSrc]="film.image_url" alt="{{ film.title }} image" class="game-image" width="600" height="400"
+      [priority]="i === 0" />
     <br><br>
 
+    <!-- ID & Type -->
     <div class="meta-row">
       <p><span class="label-name">ID:</span>{{ film.id }}</p>
       <p><span class="label-name">Type:</span>{{ film.type }}</p>
     </div>
     <br>
 
+    <!-- Description & Genre(s) -->
     <p><span class="label-name">Description:</span><br>{{ film.description }}</p><br>
-    <p><span class="label-name">Genres:</span><br>{{ film.genre }}</p><br>
+    <p><span class="label-name">Genre(s):</span><br>{{ film.genre }}</p><br>
 
+    <!-- Sequence in Franchise or Season(s), Total Episodes, and Ratings-->
     <div class="meta-row">
       @if (film.movie_sequence) {
       <p><span class="label-name">Sequence in Franchise:</span>{{ film.movie_sequence }}</p>
@@ -42,24 +49,27 @@
       <p><span class="label-name">Watch Rating:</span>{{ film.viewer_rating }} / 5</p>
     </div><br>
 
+    <!-- Streaming, Producer(s), Director(s), and Writer(s) -->
     <p><span class="label-name">Streaming:</span>{{ film.streaming }}</p><br>
-    <p><span class="label-name">Producer:</span>{{ film.producer }}</p><br>
-    <p><span class="label-name">Director:</span>{{ film.director }}</p><br>
-    <p><span class="label-name">Writer:</span>{{ film.writer }}</p><br>
+    <p><span class="label-name">Producer(s):</span>{{ film.producer }}</p><br>
+    <p><span class="label-name">Director(s):</span>{{ film.director }}</p><br>
+    <p><span class="label-name">Writer(s):</span>{{ film.writer }}</p><br>
 
+    <!-- Based on & Creator(s) -->
     <div class="meta-row">
       @if (film.based_on) {
       <p><span class="label-name">Based on:</span>{{ film.based_on }}</p>
       }
       @if (film.creator) {
-      <p><span class="label-name">Creator:</span>{{ film.creator }}</p>
+      <p><span class="label-name">Creator(s):</span>{{ film.creator }}</p>
       }
     </div><br>
 
+    <!-- Starring & Notes -->
     <p><span class="label-name">Starring:</span>{{ film.starring }}</p>
-
     <p><span class="label-name">Notes:</span>{{ film.notes ? film.notes : 'N/A' }}</p><br />
 
+    <!-- Status -->
     <p class="status-row">
       <span class="label-name">Status:</span>
       <span [ngClass]="{
@@ -71,6 +81,7 @@
       </span>
     </p>
 
+    <!-- Button: Toggling Status -->
     <button (click)="toggleStatus(film)" class="toggle-button">
       Toggle Status
     </button>
