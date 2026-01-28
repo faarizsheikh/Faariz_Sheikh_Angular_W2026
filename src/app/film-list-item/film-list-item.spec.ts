@@ -10,7 +10,7 @@ describe('FilmListItem', () => {
     await TestBed.configureTestingModule({
       imports: [FilmListItem]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FilmListItem);
     component = fixture.componentInstance;
