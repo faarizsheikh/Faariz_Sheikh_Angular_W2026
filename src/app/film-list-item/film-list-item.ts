@@ -7,11 +7,12 @@ import { NgClass } from '@angular/common';
   standalone: true,
   imports: [NgClass],
   templateUrl: './film-list-item.html',
-  styleUrls: ['./film-list-item.css'],
+  styleUrls: ['./film-list-item.scss'],
 })
 
 export class FilmListItem {
   @Input() film!: MyData;
+  @Input() isEven: boolean = false;
 
   // This will get the current status:
   Status(film?: MyData): 'not-started' | 'watching' | 'finished' {

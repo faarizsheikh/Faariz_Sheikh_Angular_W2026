@@ -7,7 +7,7 @@ import { FilmListItem } from '../film-list-item/film-list-item';
   standalone: true,
   imports: [FilmListItem],
   templateUrl: './film-list.html',
-  styleUrls: ['./film-list.css'],
+  styleUrls: ['./film-list.scss'],
 })
 
 export class FilmList {

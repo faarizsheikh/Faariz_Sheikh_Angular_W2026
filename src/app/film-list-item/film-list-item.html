@@ -2,7 +2,7 @@
 
 @if (film) {
 
-<div class="film-card">
+<div class="film-card" [ngClass]="isEven ? 'even' : 'odd'">
   <!-- Title, Year Released, and Image -->
   <h2>{{ film.title }} ({{ film.yearReleased }})</h2>
   <img [src]="film.image_url" alt="{{ film.title }} image" class="game-image" />
