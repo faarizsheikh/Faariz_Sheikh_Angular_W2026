@@ -12,11 +12,15 @@ import { FilmDataService } from '../services/film-data';
 })
 
 export class FilmList implements OnInit {
-  films : MyData[] = [];
+  films: MyData[] = [];
 
   constructor(private filmService: FilmDataService) {}
 
   ngOnInit(): void {
-    throw new Error("Method not implemented.");
+    this.filmService.getAll().subscribe({
+      next: (data: MyData[]) => this.films = data,
+      error: err => console.error("Error fetching films", err),
+      complete: () => console.log("Fetch complete!")
+    });
   }
 }
