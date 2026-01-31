@@ -3,7 +3,6 @@
 @for (film of films; track film.id; let i = $index) {
 <div>
   <app-film-list-item [film]="film" [isEven]="i % 2 === 0">
-    >
   </app-film-list-item>
 </div>
 }
