@@ -19,7 +19,7 @@ export class FilmList implements OnInit {
   ngOnInit(): void {
     this.filmService.getAll().subscribe({
       next: (data: MyData[]) => this.films = data,
-      error: err => console.error("Error fetching films", err),
+      error: err => console.error("Error while fetching films.", err),
       complete: () => console.log("Fetch complete!")
     });
   }
