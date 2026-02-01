@@ -12,7 +12,6 @@ export interface ExtraInfo {
 }
 
 export interface MyData extends ExtraInfo {
-  // My topic is TV Shows and Movies, NOT video games (a topic chosen previous semester in Angular class :> )
   id: number;
   title: string;
   description: string;

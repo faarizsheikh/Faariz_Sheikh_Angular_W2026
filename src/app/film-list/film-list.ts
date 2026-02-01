@@ -10,7 +10,7 @@ import { FilmDataService } from '../services/film-data';
   standalone: true,
   imports: [FilmListItem],
   templateUrl: './film-list.html',
-  styleUrls: ['./film-list.scss'],
+  styleUrls: ['./film-list.scss']
 })
 
 export class FilmList implements OnInit {
@@ -20,16 +20,12 @@ export class FilmList implements OnInit {
   constructor(private filmService: FilmDataService) { }
 
   ngOnInit(): void {
-    this.filmService.getAll().subscribe({
-      next: (data: MyData[]) => this.films = data,
-      error: err => console.error("Error while fetching films.", err),
-      complete: () => console.log("Fetch complete!")
+    this.filmService.getAll().subscribe(data => {
+      this.films = data;
     });
   }
 
   onFilmSelected(film: MyData) {
-    if (film) {
-      this.selectFilm.emit(film); // propagate to AppComponent
-    }
+    this.selectFilm.emit(film);
   }
 }

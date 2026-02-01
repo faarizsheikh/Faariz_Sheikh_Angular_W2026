@@ -23,7 +23,7 @@ export const MOCK_CONTENT: MyData[] = [
     based_on: "Novel", creator: "Stephen King",
     starring:
       "Bill Skarsgård, Chosen Jacobs, Finn Wolfhard, Jack Dylan Grazer, " +
-      "Jaeden Lieberher (Jaaden Martell), Jackson Robert Scott, Jeremy Ray Taylor, Sophia Lillis, Wyatt Oleff",
+      "Jaeden Lieberher (Jaeden Martell), Jackson Robert Scott, Jeremy Ray Taylor, Sophia Lillis, Wyatt Oleff",
     is_started: true, is_finished: true,
     notes:
       "This was a tense and emotionally engaging horror film that blends genuine scares with " +

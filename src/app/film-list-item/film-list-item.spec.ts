@@ -1,5 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// film-list-item.spec.ts:
 
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FilmListItem } from './film-list-item';
 
 describe('FilmListItem', () => {

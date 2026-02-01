@@ -1,5 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// film-details.spec.ts:
 
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FilmDetails } from './film-details';
 
 describe('FilmDetails', () => {
@@ -10,7 +11,7 @@ describe('FilmDetails', () => {
     await TestBed.configureTestingModule({
       imports: [FilmDetails]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FilmDetails);
     component = fixture.componentInstance;

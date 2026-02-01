@@ -1,6 +1,38 @@
-/* -- GLOBAL-LEVEL STYLING (styles.scss) -- */
+/* -- GLOBAL-LEVEL STYLING (styles.scss): -- */
 
 :root {
   background-color: #000;
   font-size: 62.5%; // 62.5% of 16px = 10px
+}
+
+/* CARD STYLING */
+.film-card {
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &.even {
+    background-color: #2b2b2b;
+  }
+
+  &.odd {
+    background-color: #1f1f1f;
+  }
+
+  img {
+    width: 100%;
+    max-height: 500px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  h2 {
+    color: white;
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 }

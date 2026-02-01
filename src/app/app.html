@@ -2,8 +2,21 @@
 
 <div class="container">
   <h1>TV SHOWS & MOVIES</h1>
-  <h3>Selected:</h3>
-  <app-film-list-item [film]="singleFilm"></app-film-list-item>
-  <h3>Full List:</h3>
-  <app-film-list (selectFilm)="singleFilm = $event"></app-film-list>
+
+  <h2>Selected Film:</h2>
+  @if (singleFilm) {
+  <app-film-details [film]="singleFilm">
+  </app-film-details>
+  }
+  @else {
+  <h3 style="font-size: 20px; text-align: center;">
+    N/A<br>Select a film to view it's details.
+  </h3>
+  }
+
+  <hr>
+
+  <h2>All Films:</h2>
+  <app-film-list (selectFilm)="singleFilm = $event">
+  </app-film-list>
 </div>

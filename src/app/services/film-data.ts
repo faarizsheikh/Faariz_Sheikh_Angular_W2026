@@ -1,9 +1,9 @@
 // film-data.service.ts:
 
 import { Injectable } from '@angular/core';
-import {MOCK_CONTENT} from '../data/mock-content';
-import {MyData} from '../models/my-data';
-import {Observable, of} from 'rxjs';
+import { MOCK_CONTENT } from '../data/mock-content';
+import { MyData } from '../models/my-data';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class FilmDataService {
   }
 
   // CREATE: A new game
-  create(newFilm:MyData) : Observable<MyData[]>{
+  create(newFilm: MyData): Observable<MyData[]> {
     this.films.push(newFilm);
     return of(this.films);
   }

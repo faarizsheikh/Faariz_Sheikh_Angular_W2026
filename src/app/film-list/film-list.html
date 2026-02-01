@@ -1,8 +1,6 @@
 <!-- film-list.html: -->
 
 @for (film of films; track film.id; let i = $index) {
-<div>
-  <app-film-list-item [film]="film" [isEven]="i % 2 === 0" (selectFilm)="onFilmSelected($event)">
-  </app-film-list-item>
-</div>
+<app-film-list-item [film]="film" [isEven]="i % 2 === 0" (selectFilm)="onFilmSelected($event)">
+</app-film-list-item>
 }
