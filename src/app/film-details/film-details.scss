@@ -3,6 +3,7 @@
 /* CARD STYLING */
 .film-card {
   background-color: #b222;
+  padding-inline: 25px;
 
   p {
     color: white;
@@ -20,6 +21,12 @@
     .label-name {
       font-weight: bold;
       margin-right: 6px;
+    }
+
+    .notes,
+    .description {
+      display: block;
+      text-align: center;
     }
   }
 

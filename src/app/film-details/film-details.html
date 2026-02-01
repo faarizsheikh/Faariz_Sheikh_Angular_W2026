@@ -5,19 +5,17 @@
   <!-- Title, Year Released, and Image -->
   <h2>{{ film.title }} ({{ film.yearReleased }})</h2>
   <img class="game-image" [src]="film.image_url" [alt]="film.title + ' (' + film.yearReleased + ')'" [title]="film.title + ' (' + film.yearReleased + ')'
-         + '.\n\nStarring:\n' + film.starring.split(', ').slice(0, 5).join(', ')" />
-  <br><br>
+         + '.\n\nStarring:\n' + film.starring.split(', ').slice(0, 5).join(', ')" /><br><br>
 
   <!-- ID & Type -->
   <div class="meta-row">
     <p><span class="label-name">ID:</span>{{ film.id }}</p>
     <p><span class="label-name">Type:</span>{{ film.type }}</p>
-  </div>
-  <br>
+  </div><br>
 
   <!-- Description & Genre(s) -->
-  <p><span class="label-name">Description:</span><br>{{ film.description }}</p><br>
-  <p><span class="label-name">Genre(s):</span><br>{{ film.genre }}</p><br>
+  <p><span class="description label-name">Description:</span>{{ film.description }}</p><br>
+  <p><span class="label-name">Genre(s):</span>{{ film.genre }}</p><br>
 
   <!-- Sequence in Franchise or Season(s), Total Episodes, and Ratings-->
   <div class="meta-row">
@@ -55,23 +53,24 @@
     @if (film.based_on) {
     <p><span class="label-name">Based on:</span>{{ film.based_on }}</p>
     }
+
     @if (film.creator) {
     <p><span class="label-name">Creator(s):</span>{{ film.creator }}</p>
     }
   </div><br>
 
   <!-- Starring & Notes -->
-  <p><span class="label-name">Starring:</span>{{ film.starring }}</p>
-  <p><span class="label-name">Notes:</span>{{ film.notes ? film.notes : 'N/A' }}</p><br />
+  <p><span class="label-name">Starring:</span>{{ film.starring }}</p><br>
+  <p><span class="notes label-name">Notes:</span>{{ film.notes ? film.notes : 'N/A' }}</p><br><br>
 
   <!-- Status -->
   <p class="status-row">
     <span class="label-name">Status:</span>
     <span [ngClass]="{
-      'status-not-started': Status === 'not-started',
-      'status-watching': Status === 'watching',
-      'status-finished': Status === 'finished'
-    }">
+        'status-not-started': Status === 'not-started',
+        'status-watching': Status === 'watching',
+        'status-finished': Status === 'finished'
+        }">
       {{ statusLabel }}
     </span>
   </p>
