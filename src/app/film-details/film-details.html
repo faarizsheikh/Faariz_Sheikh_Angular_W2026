@@ -4,7 +4,8 @@
 <div class="film-card">
   <!-- Title, Year Released, and Image -->
   <h2>{{ film.title }} ({{ film.yearReleased }})</h2>
-  <img [src]="film.image_url" alt="{{ film.title }} image" class="game-image" />
+  <img class="game-image" [src]="film.image_url" [alt]="film.title + ' (' + film.yearReleased + ')'" [title]="film.title + ' (' + film.yearReleased + ')'
+         + '.\n\nStarring:\n' + film.starring.split(', ').slice(0, 5).join(', ')" />
   <br><br>
 
   <!-- ID & Type -->
@@ -76,7 +77,7 @@
   </p>
 
   <!-- Button: Toggling Status -->
-  <button class="toggle-button" (click)="toggleStatus($event);">
+  <button class="toggle-button" title="Change the current status of this film." (click)="toggleStatus($event);">
     Toggle Status
   </button>
 </div>
