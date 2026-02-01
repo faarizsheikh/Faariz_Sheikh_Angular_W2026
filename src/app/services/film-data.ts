@@ -1,7 +1,9 @@
+// film-data.service.ts:
+
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {MyData} from '../models/my-data';
 import {MOCK_CONTENT} from '../data/mock-content';
+import {MyData} from '../models/my-data';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

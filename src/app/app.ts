@@ -1,8 +1,10 @@
+// app.component.ts:
+
 import { Component, OnInit } from '@angular/core';
 import { FilmList } from './film-list/film-list';
 import { FilmListItem } from './film-list-item/film-list-item';
+import { MyData } from './models/my-data';
 import { FilmDataService } from './services/film-data';
-import {MyData} from './models/my-data';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,7 @@ import {MyData} from './models/my-data';
 export class App implements OnInit {
   singleFilm!: MyData;
 
-  constructor(private filmService: FilmDataService) {}
+  constructor(private filmService: FilmDataService) { }
 
   ngOnInit(): void {
     this.filmService.retrieve(5).subscribe({

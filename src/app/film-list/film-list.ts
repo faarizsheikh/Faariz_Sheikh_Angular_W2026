@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { MyData } from '../models/my-data';
+// film-list.component.ts:
+
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FilmListItem } from '../film-list-item/film-list-item';
+import { MyData } from '../models/my-data';
 import { FilmDataService } from '../services/film-data';
 
 @Component({
@@ -13,8 +15,9 @@ import { FilmDataService } from '../services/film-data';
 
 export class FilmList implements OnInit {
   films: MyData[] = [];
+  @Output() selectFilm = new EventEmitter<MyData>();
 
-  constructor(private filmService: FilmDataService) {}
+  constructor(private filmService: FilmDataService) { }
 
   ngOnInit(): void {
     this.filmService.getAll().subscribe({
@@ -22,5 +25,11 @@ export class FilmList implements OnInit {
       error: err => console.error("Error while fetching films.", err),
       complete: () => console.log("Fetch complete!")
     });
+  }
+
+  onFilmSelected(film: MyData) {
+    if (film) {
+      this.selectFilm.emit(film); // propagate to AppComponent
+    }
   }
 }

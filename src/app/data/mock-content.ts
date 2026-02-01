@@ -1,3 +1,5 @@
+// mock.content.ts:
+
 import { MyData } from '../models/my-data';
 
 export const MOCK_CONTENT: MyData[] = [

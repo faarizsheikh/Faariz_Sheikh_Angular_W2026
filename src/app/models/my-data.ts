@@ -1,3 +1,5 @@
+// my-data.ts (interface):
+
 export interface ExtraInfo {
   based_on?: string;
   creator?: string;

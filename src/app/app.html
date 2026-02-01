@@ -1,9 +1,9 @@
-<!-- app.html -->
+<!-- app.html: -->
 
 <div class="container">
   <h1>TV SHOWS & MOVIES</h1>
-  <h3>You may like:</h3>
+  <h3>Selected:</h3>
   <app-film-list-item [film]="singleFilm"></app-film-list-item>
-  <h3>All films:</h3>
-  <app-film-list></app-film-list>
+  <h3>Full List:</h3>
+  <app-film-list (selectFilm)="singleFilm = $event"></app-film-list>
 </div>

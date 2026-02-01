@@ -1,8 +1,8 @@
-<!-- film-list-item.html -->
+<!-- film-list-item.html: -->
 
 @if (film) {
 
-<div class="film-card" [ngClass]="isEven ? 'even' : 'odd'">
+<div class="film-card" [ngClass]="isEven ? 'even' : 'odd'"  (click)="onClick()">
   <!-- Title, Year Released, and Image -->
   <h2>{{ film.title }} ({{ film.yearReleased }})</h2>
   <img [src]="film.image_url" alt="{{ film.title }} image" class="game-image" />
@@ -68,16 +68,16 @@
   <p class="status-row">
     <span class="label-name">Status:</span>
     <span [ngClass]="{
-      'status-not-started': Status(film) === 'not-started',
-      'status-watching': Status(film) === 'watching',
-      'status-finished': Status(film) === 'finished'
+      'status-not-started': Status === 'not-started',
+      'status-watching': Status === 'watching',
+      'status-finished': Status === 'finished'
     }">
-      {{ Status(film) === 'not-started' ? 'Not Started' : (Status(film) === 'watching' ? 'Watching' : 'Finished') }}
+      {{ statusLabel }}
     </span>
   </p>
 
   <!-- Button: Toggling Status -->
-  <button (click)="toggleStatus(film)" class="toggle-button">
+  <button class="toggle-button" (click)="toggleStatus($event);">
     Toggle Status
   </button>
 </div>

@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { MyData } from '../models/my-data';
+// film-list-item.component.ts:
+
 import { NgClass } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MyData } from '../models/my-data';
 
 @Component({
   selector: 'app-film-list-item',
@@ -13,31 +15,43 @@ import { NgClass } from '@angular/common';
 export class FilmListItem {
   @Input() film!: MyData;
   @Input() isEven: boolean = false;
+  @Output() selectFilm = new EventEmitter<MyData>();
 
-  // This will get the current status:
-  Status(film?: MyData): 'not-started' | 'watching' | 'finished' {
-    if (!film || (!film.is_started && !film.is_finished)) return 'not-started';
-    if (film.is_started && !film.is_finished) return 'watching';
+  onClick(): void {
+    if (this.film) {
+      this.selectFilm.emit(this.film);
+    }
+  }
+
+  // This'll assign the statusLabel based on current status:
+  get statusLabel(): string {
+    return this.Status === 'not-started'
+      ? 'Not Started'
+      : this.Status === 'watching'
+        ? 'Watching'
+        : 'Finished';
+  }
+
+  // This'll get the current status:
+  get Status(): 'not-started' | 'watching' | 'finished' {
+    if (!this.film || (!this.film.is_started && !this.film.is_finished)) return 'not-started';
+    if (this.film.is_started && !this.film.is_finished) return 'watching';
     return 'finished';
   }
 
-  // This will be used for changing the status
-  toggleStatus(film?: MyData): void {
-    if (!film) return;
+  // This'll be used for changing the status:
+  toggleStatus(event: Event): void {
+    event.stopPropagation();
 
-    const status = this.Status(film);
-
-    if (status === 'not-started') {
-      film.is_started = true;
-      film.is_finished = false;
+    if (this.Status === 'not-started') {
+      this.film.is_started = true;
     }
-    else if (status === 'watching') {
-      film.is_started = true;
-      film.is_finished = true;
+    else if (this.Status === 'watching') {
+      this.film.is_finished = true;
     }
     else {
-      film.is_started = false;
-      film.is_finished = false;
+      this.film.is_started = false;
+      this.film.is_finished = false;
     }
   }
 }
