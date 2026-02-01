@@ -5,7 +5,7 @@
   <!-- Title, Year Released, and Image -->
   <h2>{{ film.title }} ({{ film.yearReleased }})</h2>
   <img class="game-image" [src]="film.image_url" [alt]="film.title + ' (' + film.yearReleased + ')'" [title]="film.title + ' (' + film.yearReleased + ')'
-         + '.\n\nStarring:\n' + film.starring.split(', ').slice(0, 5).join(', ')" /><br><br>
+         + '.\n\nStarring: ' + film.starring.split(', ').slice(0, 5).join(', ')" /><br><br>
 
   <!-- ID & Type -->
   <div class="meta-row">
