@@ -32,9 +32,7 @@ export class FilmDetails {
   }
 
   // This'll be used for changing the status:
-  toggleStatus(event: Event): void {
-    event.stopPropagation();
-
+  toggleStatus(): void {
     if (!this.film) return;
 
     if (this.Status === 'not-started') {

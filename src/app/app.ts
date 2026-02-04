@@ -16,17 +16,4 @@ import { MyData } from './models/my-data';
 
 export class App /* implements OnInit */ {
   singleFilm?: MyData;
-
-  /*
-    constructor(private filmService: FilmDataService) {
-    }
-  
-    ngOnInit(): void {
-      this.filmService.retrieve(5).subscribe({
-        next: data => this.singleFilm = data!,
-        error: err => console.error("Error loading selected film.", err),
-        complete: () => console.log("Selected film loaded!")
-      });
-    }
-    */
 }
