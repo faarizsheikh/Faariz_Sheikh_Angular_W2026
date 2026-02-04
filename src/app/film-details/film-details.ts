@@ -3,6 +3,8 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MyData } from '../models/my-data';
+import {ActivatedRoute} from '@angular/router';
+import {FilmDataService} from '../services/film-data';
 
 @Component({
   selector: 'app-film-details',

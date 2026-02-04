@@ -1,21 +1,21 @@
 // film-list.component.ts:
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FilmListItem } from '../film-list-item/film-list-item';
 import { MyData } from '../models/my-data';
 import { FilmDataService } from '../services/film-data';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-film-list',
   standalone: true,
-  imports: [FilmListItem],
+  imports: [FilmListItem, RouterLink],
   templateUrl: './film-list.html',
   styleUrls: ['./film-list.scss']
 })
 
 export class FilmList implements OnInit {
   films: MyData[] = [];
-  @Output() selectFilm = new EventEmitter<MyData>();
 
   constructor(private filmService: FilmDataService) { }
 
@@ -23,9 +23,5 @@ export class FilmList implements OnInit {
     this.filmService.getAll().subscribe(data => {
       this.films = data;
     });
-  }
-
-  onFilmSelected(film: MyData) {
-    this.selectFilm.emit(film);
   }
 }

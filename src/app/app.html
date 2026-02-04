@@ -3,19 +3,5 @@
 <div class="container">
   <h1>TV SHOWS & MOVIES</h1>
 
-  <h2>Selected:</h2>
-  @if (singleFilm) {
-  <app-film-details [film]="singleFilm">
-  </app-film-details>
-  }
-  @else {
-  <h3>
-    N/A<br>Select a film to view its details.
-  </h3>
-  }
-  <hr>
-
-  <h2>All Films:</h2>
-  <app-film-list (selectFilm)="singleFilm = $event">
-  </app-film-list>
+  <router-outlet></router-outlet>
 </div>

@@ -1,6 +1,12 @@
 <!-- film-list.html: -->
 
+<div class="film-list">
 @for (film of films; track film.id; let i = $index) {
-<app-film-list-item [film]="film" [isEven]="i % 2 === 0" (selectFilm)="onFilmSelected($event)">
+  <div [routerLink]="['/films', film.id]" style="text-decoration:none; color:inherit;">
+<app-film-list-item
+  [film]="film"
+  [isEven]="i % 2 === 0">
 </app-film-list-item>
+  </div>
 }
+</div>
