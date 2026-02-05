@@ -1,7 +1,7 @@
 <!-- film-list-item.html: -->
 
 @if (film) {
-<div class="film-card" [ngClass]="isEven ? 'even' : 'odd'" (click)="onClick()">
+<div class="film-card" [ngClass]="isEven ? 'even' : 'odd'">
   <img class="preview-image" [src]="film.image_url" [alt]="film.title + ' (' + film.yearReleased + ')'" [title]="film.title + ' (' + film.yearReleased + ')'
          + '.\n\nStarring: ' + film.starring.split(', ').slice(0, 5).join(', ')">
 

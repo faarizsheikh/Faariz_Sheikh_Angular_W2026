@@ -1,7 +1,7 @@
 // film-list-item.component.ts:
 
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MyData } from '../models/my-data';
 
 @Component({
@@ -15,11 +15,4 @@ import { MyData } from '../models/my-data';
 export class FilmListItem {
   @Input() film?: MyData;
   @Input() isEven: boolean = false;
-  @Output() selectFilm = new EventEmitter<MyData>();
-
-  onClick(): void {
-    if (this.film) {
-      this.selectFilm.emit(this.film);
-    }
-  }
 }

@@ -1,6 +1,6 @@
 // film-list.component.ts:
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FilmListItem } from '../film-list-item/film-list-item';
 import { MyData } from '../models/my-data';
 import { FilmDataService } from '../services/film-data';
@@ -15,7 +15,6 @@ import { FilmDataService } from '../services/film-data';
 
 export class FilmList implements OnInit {
   films: MyData[] = [];
-  @Output() selectFilm = new EventEmitter<MyData>();
 
   constructor(private filmService: FilmDataService) { }
 
@@ -26,6 +25,6 @@ export class FilmList implements OnInit {
   }
 
   onFilmSelected(film: MyData) {
-    this.selectFilm.emit(film);
+    this.filmService.setSelectedFilm(film);
   }
 }

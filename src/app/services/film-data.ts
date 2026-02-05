@@ -11,6 +11,7 @@ import { Observable, of } from 'rxjs';
 
 export class FilmDataService {
   private films = MOCK_CONTENT;
+  selectedFilm?: MyData;
 
   // RETURN: An Observable that emits mock film data
   getAll(): Observable<MyData[]> {
@@ -43,5 +44,9 @@ export class FilmDataService {
   delete(filmId: number): Observable<MyData[]> {
     this.films = this.films.filter(film => film.id !== filmId);
     return of(this.films);
+  }
+
+  setSelectedFilm(film: MyData) {
+    this.selectedFilm = film;
   }
 }
