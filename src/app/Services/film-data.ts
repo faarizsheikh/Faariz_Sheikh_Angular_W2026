@@ -1,8 +1,8 @@
 // film-data.service.ts:
 
 import { Injectable } from '@angular/core';
-import { MOCK_CONTENT } from '../data/mock-content';
-import { MyData } from '../models/my-data';
+import { MOCK_CONTENT } from '../Shared/mock-content';
+import { MyData } from '../Shared/Models/my-data';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

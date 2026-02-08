@@ -1,19 +1,19 @@
-// page-not-found.spec.ts:
+// footer.spec.ts:
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PageNotFound } from './page-not-found';
+import { Footer } from './footer';
 
-describe('PageNotFound', () => {
-  let component: PageNotFound;
-  let fixture: ComponentFixture<PageNotFound>;
+describe('Footer', () => {
+  let component: Footer;
+  let fixture: ComponentFixture<Footer>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageNotFound]
+      imports: [Footer]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PageNotFound);
+    fixture = TestBed.createComponent(Footer);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

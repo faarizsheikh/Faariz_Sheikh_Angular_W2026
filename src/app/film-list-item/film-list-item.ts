@@ -2,7 +2,7 @@
 
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { MyData } from '../models/my-data';
+import { MyData } from '../Shared/Models/my-data';
 
 @Component({
   selector: 'app-film-list-item',

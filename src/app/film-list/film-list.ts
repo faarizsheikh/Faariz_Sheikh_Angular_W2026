@@ -1,10 +1,10 @@
 // film-list.component.ts:
 
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { FilmListItem } from '../film-list-item/film-list-item';
-import { MyData } from '../models/my-data';
-import { FilmDataService } from '../services/film-data';
-import {RouterLink} from '@angular/router';
+import { FilmDataService } from '../Services/film-data';
+import { MyData } from '../Shared/Models/my-data';
 
 @Component({
   selector: 'app-film-list',
