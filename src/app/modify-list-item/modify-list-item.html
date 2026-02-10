@@ -1,0 +1,27 @@
+<!-- modify-list-item.html: -->
+
+<div class="modify-list">
+
+  <h2>Modify Status:</h2>
+
+  @for (film of films; track film.id) {
+  <div>
+    <h3>{{ film.title }} ({{ film.yearReleased }})</h3>
+
+    <p class="status-row">
+      <span class="label-name">Status:</span>
+      <span [ngClass]="{
+        'status-not-started': getStatus(film) === 'not-started',
+        'status-watching': getStatus(film) === 'watching',
+        'status-finished': getStatus(film) === 'finished'
+        }">
+        {{ getStatusLabel(film) }}
+      </span>
+    </p>
+
+    <button class="toggle-button" (click)="toggleStatus(film)">
+      Toggle Status
+    </button>
+  </div>
+  }
+</div>

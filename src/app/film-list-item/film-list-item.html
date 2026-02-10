@@ -5,6 +5,6 @@
   <img class="preview-image" [src]="film.image_url" [alt]="film.title + ' (' + film.yearReleased + ')'" [title]="film.title + ' (' + film.yearReleased + ')'
          + '.\n\nStarring: ' + film.starring.split(', ').slice(0, 5).join(', ')">
 
-  <h2>{{ film.title }} ({{ film.yearReleased }})</h2>
+  <h3>{{ film.title }} ({{ film.yearReleased }})</h3>
 </div>
 }

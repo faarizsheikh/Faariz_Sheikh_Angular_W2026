@@ -11,7 +11,7 @@ describe('ModifyListItem', () => {
     await TestBed.configureTestingModule({
       imports: [ModifyListItem]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ModifyListItem);
     component = fixture.componentInstance;

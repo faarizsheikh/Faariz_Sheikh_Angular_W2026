@@ -11,7 +11,7 @@ describe('Header', () => {
     await TestBed.configureTestingModule({
       imports: [Header]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(Header);
     component = fixture.componentInstance;

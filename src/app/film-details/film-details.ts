@@ -17,7 +17,7 @@ import { MyData } from '../Shared/Models/my-data';
 export class FilmDetails implements OnInit {
   film?: MyData;
 
-  constructor(private route: ActivatedRoute, private filmService: FilmDataService) {}
+  constructor(private route: ActivatedRoute, private filmService: FilmDataService) { }
 
   ngOnInit(): void {
     /*
@@ -50,23 +50,5 @@ export class FilmDetails implements OnInit {
     if (!this.film || (!this.film.is_started && !this.film.is_finished)) return 'not-started';
     if (this.film.is_started && !this.film.is_finished) return 'watching';
     return 'finished';
-  }
-
-  // This'll be used for changing the status:
-  toggleStatus(event: Event): void {
-    event.stopPropagation();
-
-    if (!this.film) return;
-
-    if (this.Status === 'not-started') {
-      this.film.is_started = true;
-    }
-    else if (this.Status === 'watching') {
-      this.film.is_finished = true;
-    }
-    else {
-      this.film.is_started = false;
-      this.film.is_finished = false;
-    }
   }
 }

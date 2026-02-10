@@ -1,13 +1,18 @@
 /* -- PAGE-NOT-FOUND STYLING (page-not-found.scss): -- */
 
 .not-found {
-  background-color: saddlebrown;
-  color: white;
+  background-color: #b111;
   text-align: center;
   margin-top: 50px;
+  padding: 20px;
+
+  h2,
+  h3 {
+    color: red;
+  }
 
   a {
-    color: lightblue;
+    font-weight: bold;
     text-decoration: underline;
   }
 }

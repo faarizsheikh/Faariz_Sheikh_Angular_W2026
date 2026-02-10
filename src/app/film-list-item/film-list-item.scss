@@ -1,1 +1,9 @@
 /* -- FILM-LIST-ITEM STYLING (film-list-item.scss): -- */
+
+h3 {
+  text-align: center;
+
+  &:hover {
+    color: red;
+  }
+}

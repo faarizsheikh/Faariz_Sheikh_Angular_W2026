@@ -1,12 +1,11 @@
 <!-- film-list.html: -->
 
 <div class="film-list">
-@for (film of films; track film.id; let i = $index) {
+  <h2>List of Films:</h2>
+  @for (film of films; track film.id; let i = $index) {
   <div [routerLink]="['/films', film.id]" style="color: inherit; text-decoration:none;">
-<app-film-list-item
-  [film]="film"
-  [isEven]="i % 2 === 0">
-</app-film-list-item>
+    <app-film-list-item [film]="film" [isEven]="i % 2 === 0">
+    </app-film-list-item>
   </div>
-}
+  }
 </div>

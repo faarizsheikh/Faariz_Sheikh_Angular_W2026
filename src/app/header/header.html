@@ -1,8 +1,11 @@
 <!-- header.html: -->
 
 <div class="header">
+  <!-- https://angular.dev/api/router/RouterLinkActive#description: Usage of routerLinkActiveOptions -->
   <nav>
-    <li><a routerLink="/" routerLinkActive="active" title="Go to the main page.">Home</a></li>
-    <li><a routerLink="/modify" routerLinkActive="active" title="Change an item's details.">Modify List</a></li>
+    <li><a routerLink="/films" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        title="Go to the main page.">Home</a></li>
+    <li><a routerLink="/modify" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+        title="Change an item's details.">Modify List</a></li>
   </nav>
 </div>

@@ -4,3 +4,9 @@
   display: block;
   padding: 20px;
 }
+
+.film-list {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}

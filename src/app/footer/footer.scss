@@ -1,1 +1,45 @@
 /* -- FOOTER STYLING (footer.scss): -- */
+
+.footer {
+  margin-top: 20px;
+  padding-inline: 15px;
+  padding-top: 20px;
+
+  nav {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+
+    /* =========================
+       NAVIGATION LINKS
+    ========================= */
+    li {
+      list-style: none;
+
+      a {
+        color: white;
+        font-size: 1.8em;
+        text-align: center;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  /* =========================
+     COPYRIGHT NOTICE
+  ========================= */
+  p {
+    color: darkgoldenrod;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 30px;
+
+    span {
+      color: gold;
+    }
+  }
+}

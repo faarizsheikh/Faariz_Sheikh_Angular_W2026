@@ -11,7 +11,7 @@ describe('PageNotFound', () => {
     await TestBed.configureTestingModule({
       imports: [PageNotFound]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PageNotFound);
     component = fixture.componentInstance;
