@@ -3,8 +3,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FilmListItem } from '../film-list-item/film-list-item';
-import { FilmDataService } from '../Services/film-data';
-import { MyData } from '../Shared/Models/my-data';
+import { FilmDataService } from '../../Services/film-data';
+import { MyData } from '../../Shared/Models/my-data';
 
 @Component({
   selector: 'app-film-list',

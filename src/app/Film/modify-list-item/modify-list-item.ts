@@ -2,8 +2,8 @@
 
 import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FilmDataService } from '../Services/film-data';
-import { MyData } from '../Shared/Models/my-data';
+import { FilmDataService } from '../../Services/film-data';
+import { MyData } from '../../Shared/Models/my-data';
 
 @Component({
   selector: 'app-modify-list-item',

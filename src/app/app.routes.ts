@@ -1,9 +1,9 @@
 // app.routes.ts:
 
 import { Routes } from '@angular/router';
-import { FilmDetails } from './film-details/film-details';
-import { FilmList } from './film-list/film-list';
-import { ModifyListItem } from './modify-list-item/modify-list-item';
+import { FilmDetails } from './Film/film-details/film-details';
+import { FilmList } from './Film/film-list/film-list';
+import { ModifyListItem } from './Film/modify-list-item/modify-list-item';
 import { PageNotFound } from './page-not-found/page-not-found';
 
 export const routes: Routes = [
