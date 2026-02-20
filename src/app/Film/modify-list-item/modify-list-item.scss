@@ -1,26 +1,138 @@
 /* -- MODIFY-LIST-ITEM STYLING (modify-list-item.scss): -- */
 
-div>div {
-  background-color: #f555;
+.modify-list {
 
-  h3 {
-    text-align: center;
-  }
-
-  .toggle-button {
-    background-color: #007bff;
+  form {
+    background-color: #222;
     color: white;
-    font-size: 1.8em;
-    margin-inline: auto;
-    margin-top: 10px;
-    padding: 6px 12px;
-    display: block;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    text-align: center;
+    padding: 25px;
 
-    &:hover {
-      background-color: #0056b3;
+    ::placeholder {
+      text-align: center;
+    }
+
+    /* =========================
+              INPUTS
+     ========================= */
+    input[type='text'],
+    input[type='number'] {
+      height: 25px;
+    }
+
+    input[type='number'] {
+      width: 75px;
+    }
+
+    textarea {
+      height: 200px;
+      width: 400px;
+      max-height: 200px;
+      max-width: 400px;
+
+      &::placeholder {
+        padding-top: 75px;
+      }
+    }
+
+    /* =========================
+              LABELS
+    ========================= */
+    label:not(.field-name) {
+      font-size: 18px;
+    }
+
+    .field-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+
+    /* =========================
+          FIELD SECTIONS
+    ========================= */
+    .form-group {
+      margin-bottom: 15px;
+
+      &.creator-section,
+      &.imageUrl-section,
+      &.matureRating-section,
+      &.note-section,
+      &.sequence-section {
+        text-align: center;
+      }
+
+      &.genre-section input,
+      &.producer-section input,
+      &.director-section input,
+      &.writer-section input,
+      &.starring-section input,
+      &.imageUrl-section input {
+        width: 400px;
+      }
+
+      &.watchStatus-section {
+        text-align: left;
+        display: inline;
+      }
+    }
+
+    /* =========================
+        FORMATTED SECTIONS
+    ========================= */
+    .inline-duo {
+      display: flex;
+      gap: 15px;
+      justify-self: center;
+    }
+
+    .radio-grid {
+      margin-top: 6px;
+      display: grid;
+      gap: 8px 16px;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+      .radio-item {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+
+        &:active {
+          color: yellow;
+        }
+
+        span {
+          white-space: normal;
+        }
+      }
+    }
+
+    /* =========================
+           FORM BUTTONS
+    ========================= */
+    .form-buttons {
+      display: flex;
+      justify-content: center;
+
+      .reset-btn {
+        background-color: red;
+        color: white;
+
+        &:hover {
+          background-color: darkred;
+        }
+      }
+
+      .submit-btn {
+        background-color: green;
+        color: white;
+
+        &:hover {
+          background-color: darkgreen;
+        }
+      }
     }
   }
 }

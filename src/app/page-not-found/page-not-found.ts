@@ -1,12 +1,11 @@
 // page-not-found.component.ts:
 
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-not-found',
   imports: [
-    RouterLink
   ],
   templateUrl: './page-not-found.html',
   styleUrl: './page-not-found.scss',
@@ -14,4 +13,8 @@ import { RouterLink } from '@angular/router';
 
 export class PageNotFound {
 
+  constructor(private router: Router) { }
+  navBackToFilmList() {
+    this.router.navigate(['/films']);
+  }
 }

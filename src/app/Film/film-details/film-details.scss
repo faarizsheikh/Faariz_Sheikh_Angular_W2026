@@ -1,7 +1,7 @@
 /* -- FILM-DETAILS STYLING (film-details.scss): -- */
 
 .film-card {
-  background-color: #f555;
+  background-color: #f222;
   padding-inline: 25px;
 
   h3 {
@@ -15,9 +15,8 @@
 }
 
 /* =========================
-   DETAILS LAYOUTS
+     DETAILS LAYOUTS
 ========================= */
-
 .meta-row {
   display: flex;
   gap: 12px;
@@ -28,7 +27,6 @@
   }
 }
 
-.description,
 .notes {
   text-align: center;
   display: block;

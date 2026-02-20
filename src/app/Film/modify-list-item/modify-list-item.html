@@ -1,27 +1,191 @@
 <!-- modify-list-item.html: -->
 
 <div class="modify-list">
+  <h2>{{isEditMode ? 'Update' : 'Add'}} Film</h2>
+  <button type="button" class="back-btn" title="Return to the main page." (click)="navBackToFilmList()">
+    <span>Back to Film List</span>
+  </button>
 
-  <h2>Modify Status:</h2>
+  <form [formGroup]="filmForm" (ngSubmit)="onSubmit()">
+    <!-- Type: -->
+    <div class="form-group type-section">
+      <label class="field-name">Type:</label>
+      @for (options of filmTypes; track options) {
+      <label>
+        <input type="radio" [value]="options" formControlName="type">
+        <span>{{ options }}</span>
+      </label>
+      }
+    </div>
 
-  @for (film of films; track film.id) {
-  <div>
-    <h3>{{ film.title }} ({{ film.yearReleased }})</h3>
+    <div class="inline-duo">
+      <!-- Title: -->
+      <div class="form-group title-section">
+        <label class="field-name" for="title-input">Title:</label>
+        <input id="title-input" type="text"
+          [placeholder]="'E.g. ' + (selectedType === 'TV Show' ? 'Supernatural' : 'Rush Hour')" formControlName="title">
+      </div>
 
-    <p class="status-row">
-      <span class="label-name">Status:</span>
-      <span [ngClass]="{
-        'status-not-started': getStatus(film) === 'not-started',
-        'status-watching': getStatus(film) === 'watching',
-        'status-finished': getStatus(film) === 'finished'
-        }">
-        {{ getStatusLabel(film) }}
-      </span>
-    </p>
+      <!-- Year: -->
+      <div class="form-group year-section">
+        <label class="field-name" for="year-input">Year Released:</label>
+        <input id="year-input" type="number" [placeholder]="'E.g. ' + (selectedType === 'TV Show' ? '2005' : '2007')"
+          formControlName="yearReleased">
+      </div>
+    </div>
 
-    <button class="toggle-button" (click)="toggleStatus(film)">
-      Toggle Status
-    </button>
-  </div>
-  }
+    <!-- Genre(s): -->
+    <div class="form-group genre-section">
+      <label class="field-name" for="genre-input">Genre(s):</label>
+      <input id="genre-input" type="text"
+        [placeholder]="'E.g. Action, ' + (selectedType === 'TV Show' ? 'Drama, Horror' : 'Adventure, Comedy')"
+        formControlName="genre">
+    </div>
+
+    <!-- Movie Only: -->
+    @if (selectedType === "Movie") {
+    <div class="form-group sequence-section">
+      <label class="field-name" for="sequence-input">Movie Sequence:</label><br>
+      <input id="sequence-input" type="number" placeholder="E.g. 3" formControlName="movie_sequence">
+    </div>
+    }
+
+    <!-- TV Only: -->
+    <div class="inline-duo">
+      @if (selectedType === "TV Show") {
+      <div class="form-group season-section">
+        <label class="field-name" for="season-input">Seasons:</label>
+        <input id="season-input" type="number" placeholder="E.g. 15" formControlName="seasons">
+      </div>
+
+      <div class="form-group episode-section">
+        <label class="field-name" for="episodes-input">Total Episodes:</label>
+        <input id="episodes-input" type="number" placeholder="E.g. 327" formControlName="total_episodes">
+      </div>
+      }
+    </div>
+
+    <!-- Based On: -->
+    <div class="form-group based-section">
+      <label class="field-name">Based On:</label>
+      <div class="radio-grid">
+        @for (options of ogSources; track options) {
+        <label class="radio-item">
+          <input type="radio" [value]="options" formControlName="based_on">
+          <span>{{ options }}</span>
+        </label>
+        }
+      </div>
+    </div>
+
+    <!-- Creator: -->
+    @if (selectedBasedOn && selectedBasedOn !== "None") {
+    <div class="form-group creator-section">
+      <label class="field-name" for="creator-input">Creator:</label>
+      <input id="creator-input" type="text" placeholder="E.g. Eric Kripke" formControlName="creator">
+    </div>
+    }
+
+    <!-- Streaming: -->
+    <div class="form-group streaming-section">
+      <label class="field-name">Streaming:</label>
+      <div class="radio-grid">
+        @for (options of streamingOptions; track options) {
+        <label class="radio-item">
+          <input type="radio" [value]="options" formControlName="streaming">
+          <span>{{ options }}</span>
+        </label>
+        }
+      </div>
+    </div>
+
+    <!-- Maturity Rating: -->
+    @if (selectedType !== "") {
+    <div class="form-group matureRating-section">
+      <label class="field-name">Maturity Rating:</label>
+
+      @for (options of (selectedType === "TV Show" ? tvRatings : movieRatings); track options) {
+      <label>
+        <input type="radio" [value]="options"
+          [formControlName]="selectedType === 'TV Show' ? 'tv_rating' : 'mpaa_rating'">
+        <span>{{ options }}</span>
+      </label>
+      }
+    </div>
+    }
+
+    <!-- Credits: -->
+    <div class="form-group producer-section">
+      <label class="field-name" for="producer-input">Producer(s):</label>
+      <input id="producer-input" type="text" [placeholder]="'E.g. ' + (selectedType ===
+        'TV Show' ? 'Eric Kripke, McG, Robert Singer' : 'Jay Stern, Jonathan Glickman, Roger Birnbaum')"
+        formControlName="producer">
+    </div>
+
+    <div class="form-group director-section">
+      <label class="field-name" for="director-input">Director(s):</label>
+      <input id="director-input" type="text" [placeholder]="'E.g. ' + (selectedType ===
+        'TV Show' ? 'Kim Manners, Philip Sgriccia, Robert Singer' : 'Brett Ratner')" formControlName="director">
+    </div>
+
+    <div class="form-group writer-section">
+      <label class="field-name" for="writer-input">Writer(s):</label>
+      <input id="writer-input" type="text" [placeholder]="'E.g. ' + (selectedType ===
+        'TV Show' ? 'Andrew Dabb, Eric Kripke, Jeremy Carver, Sera Gamble' : 'Jeff Nathanson')"
+        formControlName="writer">
+    </div>
+
+    <div class="form-group starring-section">
+      <label class="field-name" for="starring-input">Starring:</label>
+      <input id="starring-input" type="text" [placeholder]="'E.g. ' + (selectedType ===
+        'TV Show' ? 'Jared Padalecki, Jensen Ackles, Misha Collins' : 'Chris Tucker, Hiroyuki Sanada, Jackie Chan')"
+        formControlName="starring">
+    </div>
+
+    <!-- Rating & Status: -->
+    <div class="inline-duo">
+      <!-- Viewer Rating: -->
+      <div class="form-group viewRating-section">
+        <label class="field-name" for="viewRating-input">Viewer Rating:</label><br>
+        <input id="viewRating-input" type="number" placeholder="E.g. 4" formControlName="viewer_rating">
+      </div>
+
+      <div class="form-group watchStatus-section">
+        <label class="field-name">Status:</label><br>
+        <label>
+          <input type="checkbox" formControlName="is_started">
+          <span>Started</span><br>
+        </label>
+        <label>
+          <input type="checkbox" formControlName="is_finished">
+          <span>Finished</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Image URL: -->
+    <div class="form-group imageUrl-section">
+      <label class="field-name" for="imageUrl-input">Image URL:</label><br>
+      <input id="imageUrl-input" type="text" placeholder="E.g. https://upload.wikimedia.org/wikipedia/image.png"
+        formControlName="image_url">
+    </div>
+
+    <!-- Notes: -->
+    <div class="form-group note-section">
+      <label class="field-name" for="note-input">Notes:</label><br>
+      <textarea id="note-input" maxlength="500"
+        [placeholder]="'Any thoughts on the ' + (selectedType === 'TV Show' ? 'TV Show' : 'Movie') + '?...'"
+        formControlName="notes">
+      </textarea>
+    </div><br>
+
+    <!-- Buttons: -->
+    <div class="form-buttons">
+      <button class="reset-btn" type="reset" title="Clear all fields of the form.">Reset</button>
+      <button class="submit-btn" type="submit" [title]="(isEditMode ? 'Update an existing' : 'Add a new') + ' game.'"
+        [disabled]="filmForm.invalid">
+        {{ isEditMode ? 'Update' : 'Add' }}
+      </button>
+    </div>
+  </form>
 </div>

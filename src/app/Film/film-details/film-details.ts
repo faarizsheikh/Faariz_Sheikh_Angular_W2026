@@ -2,8 +2,8 @@
 
 import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { FilmDataService } from '../../Services/film-data';
+import { ActivatedRoute, Router } from '@angular/router';
+import FilmDataService from '../../Services/film-data';
 import { MyData } from '../../Shared/Models/my-data';
 
 @Component({
@@ -17,18 +17,21 @@ import { MyData } from '../../Shared/Models/my-data';
 export class FilmDetails implements OnInit {
   film?: MyData;
 
-  constructor(private route: ActivatedRoute, private filmService: FilmDataService) { }
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private filmService: FilmDataService) { }
 
   ngOnInit(): void {
     /*
       From lecture 5 slides:
-      * this.route.snapshot: Provides access to the route's current state.
-      * paramMap: A map of the parameters from the current route.
-      * get('id'): Retrieves route parameter's value (id) from paramMap to get a specific film's ID from the route URL
+      this.route.snapshot: Provides access to the route's current state.
+      paramMap: A map of the parameters from the current route.
+      get('id'): Retrieves the 'id' value from the route URL.
      */
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {
+      // Convert id from string to number and request film data from the service
       this.filmService.retrieve(Number(id)).subscribe({
         next: data => this.film = data,
         error: err => console.error(err)
@@ -50,5 +53,10 @@ export class FilmDetails implements OnInit {
     if (!this.film || (!this.film.is_started && !this.film.is_finished)) return 'not-started';
     if (this.film.is_started && !this.film.is_finished) return 'watching';
     return 'finished';
+  }
+
+  // This'll be used to navigate back to the home page.
+  navBackToFilmList() {
+    this.router.navigate(['/films']);
   }
 }

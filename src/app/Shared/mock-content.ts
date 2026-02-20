@@ -5,22 +5,19 @@ import { MyData } from './Models/my-data';
 export const MOCK_CONTENT: MyData[] = [
   {
     id: 1, title: "IT",
-    description:
-      "Seven outcasts in Derry unite to face an ancient, shape-shifting evil that resurfaces every 27 years, " +
-      "confronting their fears to defeat the killer clown Pennywise.",
     type: "Movie",
     genre:
       "Action, Adventure, Coming-of-age Story, Drama, Horror, " +
       "Mystery, Sci-Fi, Supernatural, Suspense, Thriller",
     yearReleased: 2017, movie_sequence: 1, mpaa_rating: "R", viewer_rating: 4,
     streaming:
-      "Amazon Prime Video, Apple TV, Fandango at Home, Max (formerly HBO Max), Plex",
+      "Amazon Prime Video",
     producer:
       "Andrés Muschietti, Barbara Muschietti, Dan Lin, " +
       "David Katzenberg, Roy Lee, Seth Grahame-Smith",
     director: "Andrés Muschietti",
     writer: "Andrés Muschietti, Cary Fukunga, Chase Palmer, Gary Dauberman",
-    based_on: "Novel", creator: "Stephen King",
+    based_on: "Novel(s)", creator: "Stephen King",
     starring:
       "Bill Skarsgård, Chosen Jacobs, Finn Wolfhard, Jack Dylan Grazer, " +
       "Jaeden Lieberher (Jaeden Martell), Jackson Robert Scott, Jeremy Ray Taylor, Sophia Lillis, Wyatt Oleff",
@@ -34,22 +31,18 @@ export const MOCK_CONTENT: MyData[] = [
 
   {
     id: 2, title: "John Wick",
-    description:
-      "After retiring from his life as a legendary assassin, John Wick is pulled back into violence " +
-      "when his wife dies and a ruthless gangster steals his car and kills the puppy she left him. " +
-      "Driven by grief and rage, John hunts those responsible, while the gangster’s powerful father " +
-      "places a massive bounty on his head to stop him.",
     type: "Movie",
     genre:
-      "Action, Action Thriller, Adventure, Crime, Crime Film, " +
-      "Detective Fiction, Mystery, Neo-noir, Noir, Police procedural, Thriller",
+      "Action, Adventure, Crime, " +
+      "Mystery, Noir, Police-procedural, Thriller",
     yearReleased: 2014, movie_sequence: 1, mpaa_rating: "R", viewer_rating: 4,
     streaming:
-      "Amazon Prime Video, Apple TV, CraveTV, Google Play Movies & TV",
+      "Apple TV",
     producer:
       "Basil Iwanyk, Chad Stahelski, David Leitch, Eva Longoria, Michael Witherill",
     director: "Chad Stahelski",
     writer: "Derek Kolstad",
+    based_on: "None",
     starring:
       "Bridget Moynahan, Ian McShane, Keanu Reeves, Lance Reddick, Michael Nyqvist",
     is_started: true, is_finished: true,
@@ -63,22 +56,19 @@ export const MOCK_CONTENT: MyData[] = [
 
   {
     id: 3, title: "Filth",
-    description:
-      "A drug-addled, manipulative misanthrope begins to experience increasingly " +
-      "severe hallucinations as he tries to solve the murder of a Japanese student.",
     type: "Movie",
     genre:
-      "Action, Crime Fiction, Crime Film, Comedy, Comedy Drama," +
-      "Detective Fiction, Drama, Mystery, Police Procedural, Thriller, Tragic Comedy",
+      "Action, Crime, Comedy," +
+      "Drama, Mystery, Police Procedural, Thriller",
     yearReleased: 2013, movie_sequence: 1, mpaa_rating: "R", viewer_rating: 3.5,
     streaming:
-      "Apple TV, Plex",
+      "Apple TV",
     producer:
       "Christian Angermayer, James McAvoy, Jens Meurer, Jon S. Baird " +
       "Ken Marshall, Mark Amin, Stephen Mao, Trudie Styler ",
     director: "Jon S. Baird",
     writer: "Jon S. Baird",
-    based_on: "Novel", creator: "Irvine Welsh",
+    based_on: "Novel(s)", creator: "Irvine Welsh",
     starring:
       "Eddie Marsan, Emun Elliott, Gary Lewis, Iain De Caestecker, Imogen Poots, " +
       "James McAvoy, Jamie Bell, Jim Broadbent, Joanne Froggatt, John Sessions, " +
@@ -95,13 +85,11 @@ export const MOCK_CONTENT: MyData[] = [
 
   {
     id: 4, title: "Locke & Key",
-    description:
-      "Following their father's murder, three siblings move into a house filled with reality-bending keys.",
     type: "TV Show",
     genre:
-      "Adventure, Drama, Fantasy, Fantasy Television, " +
-      "Horror, Horror Fiction, Mystery, Sci-Fi, Thriller",
-    yearReleased: 2020, seasons: 3, total_episodes: 28, tv_rating: "TV-14", viewer_rating: 3.5,
+      "Adventure, Drama, Fantasy, " +
+      "Horror, Mystery, Sci-Fi, Thriller",
+    yearReleased: 2020, seasons: 3, total_episodes: 28, tv_rating: "14+", viewer_rating: 3.5,
     streaming:
       "Netflix",
     producer:
@@ -110,7 +98,7 @@ export const MOCK_CONTENT: MyData[] = [
     director: "Carlton Cuse, Dawn Wilkinson, Mairzee Almas, Mark Tonderai, " +
       "Michael Morris, Millicent Shelton, Tim Southam, Vincenzo Natali",
     writer: "Joe Hill",
-    based_on: "Comics", creator: "Gabriel Rodriguez",
+    based_on: "Comic(s)", creator: "Gabriel Rodriguez",
     starring:
       "Aaron Ashmore, Brendan Hines, Coby Bird, Connor Jessup, Darby Stanchfield, " +
       "Emilia Jones, Griffin Gluck, Hallea Jones, Jackson Robert Scott, Kevin Durand, " +
@@ -126,14 +114,11 @@ export const MOCK_CONTENT: MyData[] = [
 
   {
     id: 5, title: "Stranger Things",
-    description:
-      "In 1980s Indiana, a group of young friends witness supernatural forces and secret government " +
-      "exploits. As they search for answers, the children unravel a series of extraordinary mysteries.",
     type: "TV Show",
     genre:
-      "Adventure, Coming-of-age Story, Drama, Historical Drama, Horror, Horror Fiction, " +
+      "Adventure, Coming-of-age Story, Drama, Horror, " +
       "Mystery, Romance, Sci-Fi, Supernatural, Suspense, Teen, Thriller",
-    yearReleased: 2016, seasons: 5, total_episodes: 42, tv_rating: "PG-13", viewer_rating: 4.5,
+    yearReleased: 2016, seasons: 5, total_episodes: 42, tv_rating: "PG", viewer_rating: 4.5,
     streaming:
       "Netflix",
     producer:
@@ -142,6 +127,7 @@ export const MOCK_CONTENT: MyData[] = [
       "Nimród Antal, Rebecca Thomas, Ross Duffer, Shawn Levy",
     writer: "Caitlin Schneiderhan, Curtis Gwinn, Jessie Nickson-Lopez, " +
       "Justin Doble, Kate Trefry, Paul Dichter",
+    based_on: "None",
     starring:
       "Brett Gelman, Caleb McLaughlin, Cara Buono, Charlie Heaton, Dacre Montgomery, " +
       "David Harbour, Finn Wolfhard, Gaten Matarazzo, Jamie Campbell Bower, Joe Keery, " +
@@ -158,24 +144,18 @@ export const MOCK_CONTENT: MyData[] = [
 
   {
     id: 6, title: "Young Sheldon",
-    description:
-      "Young Sheldon follows a gifted but socially awkward boy growing up in East Texas, " +
-      "where his intelligence clashes with local traditions. As Sheldon navigates school and life, " +
-      "his supportive yet struggling family learns to adapt with him. Narrated by Jim Parsons, " +
-      "the series explores Sheldon's childhood journey toward becoming the iconic " +
-      "character from The Big Bang Theory.",
     type: "TV Show",
     genre:
-      "Children's film, Comedy, Coming-of-age story, Sitcom",
-    yearReleased: 2017, seasons: 7, total_episodes: 141, tv_rating: "TV-PG", viewer_rating: 4,
+      "Children, Comedy, Coming-of-age Story, Sitcom",
+    yearReleased: 2017, seasons: 7, total_episodes: 141, tv_rating: "PG", viewer_rating: 4,
     streaming:
-      "Amazon Prime Video, Apple TV, CraveTV, Netflix, YouTube",
+      "Netflix",
     producer:
       "Bill Prady, Chuck Lorre, Jim Parsons, Steven Molaro",
     director: "Alex Reid, Chris Koch, Jaffar Mahmood, Jeremy Howe, Michael Judd, Nikki Lorre",
     writer: "Alex Reid, Chris Koch, Chuck Lorre, Connor Kilpatrick, Eric Kaplan, " +
       "Jaffar Mahmood, Jeremy Howe, Michael Judd, Nikki Lorre, Steve Holland, Steven Molaro",
-    based_on: "TV Show", creator: "Jim Parsons",
+    based_on: "Another TV Show/Movie", creator: "Jim Parsons",
     starring:
       "Annie Potts, Iain Armitage, Jim Parsons, Lance Barber, Montana Jordan, Raegan Revord, Zoe Perry",
     is_started: true, is_finished: true,

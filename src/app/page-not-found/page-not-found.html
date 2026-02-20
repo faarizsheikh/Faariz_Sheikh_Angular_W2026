@@ -5,8 +5,10 @@
   <div class="not-found">
     <h3>404 - Page Not Found</h3>
     <p>
-      It seems like you tried to visit a page on our site but it didn't exist.<br>
-      To return to the main page, please <a routerLink="/">click here.</a>
-    </p>
+      It seems like you tried to visit a page on our site but it didn't exist.</p>
+
+    <button class="back-btn" type="button" title="Return to the main page." (click)="navBackToFilmList()">
+      <span>Back to Film List</span>
+    </button>
   </div>
 </div>

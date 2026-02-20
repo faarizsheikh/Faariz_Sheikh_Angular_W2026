@@ -3,9 +3,16 @@
 <div class="header">
   <!-- https://angular.dev/api/router/RouterLinkActive#description: Usage of routerLinkActiveOptions -->
   <nav>
-    <li><a routerLink="/films" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-        title="Go to the main page.">Home</a></li>
-    <li><a routerLink="/modify" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-        title="Change an item's details.">Modify List</a></li>
+    <li>
+      <a title="Go to main page." routerLink="/films" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a title="Add / edit (details of) a film." routerLink="/modify" routerLinkActive="active">
+        <span>Modify List</span>
+      </a>
+    </li>
   </nav>
 </div>

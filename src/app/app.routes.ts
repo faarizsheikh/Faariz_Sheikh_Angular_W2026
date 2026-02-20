@@ -21,6 +21,7 @@ export const routes: Routes = [
   { path: 'modify-list-item', redirectTo: '/modify', pathMatch: 'full' },
   { path: 'modifylistitem', redirectTo: '/modify', pathMatch: 'full' },
   { path: 'modify', component: ModifyListItem },
+  { path: 'modify/:id', component: ModifyListItem },
 
   { path: '**', component: PageNotFound },
 ];

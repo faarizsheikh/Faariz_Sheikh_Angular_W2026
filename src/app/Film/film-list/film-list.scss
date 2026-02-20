@@ -9,4 +9,45 @@
   display: flex;
   gap: 15px;
   flex-direction: column;
+
+  .add-btn {
+    background-color: slateblue;
+
+    &:hover {
+      background: darkslateblue;
+    }
+  }
+
+  .film-actions {
+    display: flex;
+    justify-content: center;
+
+    button {
+      border-radius: 10px;
+
+      &.edit-btn {
+        background-color: goldenrod;
+
+        &:hover {
+          background-color: darkgoldenrod;
+        }
+      }
+
+      &.delete-btn {
+        background-color: red;
+
+        &:hover {
+          background-color: darkred;
+        }
+      }
+
+      &.view-btn {
+        background-color: green;
+
+        &:hover {
+          background-color: darkgreen;
+        }
+      }
+    }
+  }
 }

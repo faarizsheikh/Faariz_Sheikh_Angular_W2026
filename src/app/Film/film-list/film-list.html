@@ -2,10 +2,30 @@
 
 <div class="film-list">
   <h2>List of Films:</h2>
+  <button type="button" class="add-btn" title="Add a new film to the list." routerLink="/modify">Add</button>
+
+  <!-- Show films list: -->
+  @if (films.length > 0) {
   @for (film of films; track film.id; let i = $index) {
-  <div [routerLink]="['/films', film.id]" style="color: inherit; text-decoration:none;">
+  <div class="film-entry">
     <app-film-list-item [film]="film" [isEven]="i % 2 === 0">
     </app-film-list-item>
+
+    <div class="film-actions">
+      <button class="edit-btn" type="button" title="Edit the details of this film." [routerLink]="['/modify', film.id]">
+        <span>Edit</span>
+      </button>
+      <button class="delete-btn" type="button" title="Delete this film from the list." (click)="deleteFilm(film)">
+        <span>Delete</span>
+      </button>
+      <button class="view-btn" type="button" title="View this film's details." [routerLink]="['/films', film.id]">
+        <span>View</span>
+      </button>
+    </div>
   </div>
+  }
+  } @else {
+  <h3>No Films found.</h3>
+  <p>Add a film first or a few to see it here.</p>
   }
 </div>

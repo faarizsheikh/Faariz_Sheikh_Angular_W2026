@@ -1,7 +1,7 @@
 // film-data.spec.ts:
 
 import { TestBed } from '@angular/core/testing';
-import { FilmDataService } from './film-data';
+import FilmDataService from './film-data';
 
 describe('FilmData', () => {
   let service: FilmDataService;

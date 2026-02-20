@@ -1,7 +1,6 @@
 // my-data.ts (interface):
 
 export interface ExtraInfo {
-  based_on?: string;
   creator?: string;
   movie_sequence?: number;
   mpaa_rating?: string;
@@ -14,11 +13,11 @@ export interface ExtraInfo {
 export interface MyData extends ExtraInfo {
   id: number;
   title: string;
-  description: string;
   type: string;
   genre: string;
   yearReleased: number;
   viewer_rating?: number;
+  based_on?: string;
   streaming: string;
   producer: string;
   director: string;

@@ -1,13 +1,18 @@
 <!-- film-details.html: -->
 
-<div>
+<div class="film-details">
   <h2>Film Details:</h2>
+  <button type="button" class="back-btn" title="Return to the main page." (click)="navBackToFilmList()">
+    <span>Back to Film List</span>
+  </button>
+
   @if (film) {
   <div class="film-card">
     <!-- Title, Year Released, and Image -->
     <h3>{{ film.title }} ({{ film.yearReleased }})</h3>
     <img class="game-image" [src]="film.image_url" [alt]="film.title + ' (' + film.yearReleased + ')'" [title]="film.title + ' (' + film.yearReleased + ')'
-         + '.\n\nStarring: ' + film.starring.split(', ').slice(0, 5).join(', ')" /><br><br>
+         + '.\n\nStarring: '
+         + film.starring.split(', ').slice(0, 5).join(', ')" /><br><br>
 
     <!-- ID & Type -->
     <div class="meta-row">
@@ -15,32 +20,22 @@
       <p><span class="label-name">Type:</span>{{ film.type }}</p>
     </div><br>
 
-    <!-- Description & Genre(s) -->
-    <p><span class="description label-name">Description:</span>{{ film.description }}</p><br>
+    <!-- Genre(s) -->
     <p><span class="label-name">Genre(s):</span>{{ film.genre }}</p><br>
 
     <!-- Sequence in Franchise or Season(s), Total Episodes, and Ratings-->
     <div class="meta-row">
-      @if (film.movie_sequence) {
+      @if (film.type === "Movie") {
       <p><span class="label-name">Sequence in Franchise:</span>{{ film.movie_sequence }}</p>
       }
 
-      @if (film.seasons) {
+      @if (film.type === "TV Show") {
       <p><span class="label-name"># of Seasons:</span>{{ film.seasons }}</p>
-      }
-
-      @if (film.total_episodes) {
       <p><span class="label-name">Total Episodes:</span>{{ film.total_episodes }}</p>
       }
 
-      @if (film.mpaa_rating) {
-      <p><span class="label-name">MPAA Rating:</span>{{ film.mpaa_rating }}</p>
-      }
-
-      @if (film.tv_rating) {
-      <p><span class="label-name">TV Rating:</span>{{ film.tv_rating }}</p>
-      }
-
+      <p><span class="label-name">Maturity Rating:</span>{{ film.type === "TV Show" ? film.tv_rating :
+        film.mpaa_rating}}</p>
       <p><span class="label-name">Watch Rating:</span>{{ film.viewer_rating }} / 5</p>
     </div><br>
 
@@ -52,12 +47,11 @@
 
     <!-- Based on & Creator(s) -->
     <div class="meta-row">
-      @if (film.based_on) {
+      @if (film.based_on !== "") {
+      @if (film.based_on !== "None") {
       <p><span class="label-name">Based on:</span>{{ film.based_on }}</p>
-      }
-
-      @if (film.creator) {
       <p><span class="label-name">Creator(s):</span>{{ film.creator }}</p>
+      }
       }
     </div><br>
 
