@@ -64,7 +64,7 @@ class FilmDataService {
     return this.films.length > 0 ? Math.max(...this.films.map(film => film.id)) + 1 : 1;
   }
 
-  preventDuplicate_title_year(
+  title_year_preventDuplicate(
     title: string,
     year: number,
     currentId?: number

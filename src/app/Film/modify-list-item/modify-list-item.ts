@@ -102,7 +102,7 @@ export class ModifyListItem implements OnInit {
     if (this.isEditMode) film.id = Number(this.route.snapshot.paramMap.get('id'));
 
     if (
-      this.filmService.preventDuplicate_title_year(
+      this.filmService.title_year_preventDuplicate(
         film.title,
         film.yearReleased,
         this.isEditMode ? film.id : undefined
