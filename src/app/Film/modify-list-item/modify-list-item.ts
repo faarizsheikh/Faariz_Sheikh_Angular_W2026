@@ -1,6 +1,6 @@
 // modify-list-item.ts:
 
-import { Component, OnInit } from '@angular/core';
+import {Component, numberAttribute, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -23,6 +23,7 @@ export class ModifyListItem implements OnInit {
   filmForm!: FormGroup;
   isEditMode: boolean = false;
   error: string | null = null;
+  Date = new Date().getFullYear();
 
   filmTypes = ["TV Show", "Movie"];
 
@@ -45,27 +46,27 @@ export class ModifyListItem implements OnInit {
     private router: Router
   ) {
     this.filmForm = this.fb.group({
-      title: ['', Validators.required],
+      title: ['', [Validators.required, this.preventWhitespace]],
       type: ['', Validators.required],
-      genre: ['', Validators.required],
-      yearReleased: ['', Validators.required],
-      movie_sequence: [''],
-      seasons: [''],
-      total_episodes: [''],
-      based_on: ['', Validators.required],
-      creator: [''],
+      genre: ['', [Validators.required, this.preventWhitespace]],
+      yearReleased: ['', [Validators.required, Validators.max(this.Date), Validators.min(1950)]],
+      movie_sequence: ['', [Validators.max(10000), Validators.min(1)]],
+      seasons: ['', [Validators.max(1000), Validators.min(1)]],
+      total_episodes: ['', [Validators.max(10000), Validators.min(1)]],
+      based_on: ['', [Validators.required]],
+      creator: ['', [this.preventWhitespace]],
       streaming: ['', Validators.required],
       mpaa_rating: [''],
       tv_rating: [''],
-      producer: ['', Validators.required],
-      director: ['', Validators.required],
-      writer: ['', Validators.required],
-      starring: ['', Validators.required],
-      viewer_rating: ['', Validators.required],
+      producer: ['', [Validators.required, this.preventWhitespace]],
+      director: ['', [Validators.required, this.preventWhitespace]],
+      writer: ['',[ Validators.required, this.preventWhitespace]],
+      starring: ['', [Validators.required, this.preventWhitespace]],
+      viewer_rating: ['', [Validators.required, Validators.max(5), Validators.min(1)]],
       is_started: [false],
       is_finished: [false],
-      image_url: ['', Validators.required],
-      notes: [''],
+      image_url: ['', [Validators.required, this.preventWhitespace]],
+      notes: ['', [this.preventWhitespace]],
     });
   }
 
@@ -119,7 +120,57 @@ export class ModifyListItem implements OnInit {
     return this.filmForm.get('based_on')?.value;
   }
 
+  preventWhitespace(control: any) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { whitespace: true };
+  }
+
+  numValidator(event: KeyboardEvent) {
+    const invalidKeys = ['e', 'E', '+', '-', '_', '.'];
+    if (invalidKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+
+  titleValidator(event: KeyboardEvent) {
+    const invalidKeys =
+      ['\\', '/', '+', '=', '@', '#', '$', '%', '^', '&',
+        '*', '|', '<', '>', '{', '}', '[', ']', '~', '`'];
+    if (invalidKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+
+  credits_genre_validator(event: KeyboardEvent) {
+    const invalidKeys =
+      ['\\', '/', ':', ';', '_', '+', '=', '@', '#', '$', '%', '^', '&', '*',
+      '?', '!', '"', '\'', '|', '<', '>', '{', '}', '[', ']', '(', ')', '~', '`'];
+    if (invalidKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+
+  imageURL_validator(event: KeyboardEvent) {
+    const invalidKeys =
+      ['\\', ';', '_', '+', '=', '^', '&', '*', '!', '"',
+        '\'', '|', '{', '}', '[', ']', '(', ')', '~', '`'];
+    if (invalidKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+
+  notesValidator(event: KeyboardEvent) {
+    const invalidKeys =
+      ['|', '<', '>', '{', '}', '[', ']', '`'];
+    if (invalidKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+
   navBackToFilmList() {
     this.router.navigate(['/films']);
   }
+
+  protected readonly numberAttribute = numberAttribute;
 }
