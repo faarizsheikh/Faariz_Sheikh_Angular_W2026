@@ -2,11 +2,7 @@
 
 <div class="modify-list">
   <h2>{{isEditMode ? 'Update' : 'Add'}} Film</h2>
-  <button
-    type="button"
-    class="back-btn"
-    title="Return to the main page."
-    (click)="navBackToFilmList()">
+  <button type="button" class="back-btn" title="Return to the main page." (click)="navBackToFilmList()">
     <span>Back to Film List</span>
   </button>
 
@@ -26,74 +22,45 @@
     <div class="inline-duo">
       <!-- Title: -->
       <div class="form-group title-section">
-        <label
-          class="field-name"
-          for="title-input">
+        <label class="field-name" for="title-input">
           <span>Title:</span>
         </label>
 
-        <input
-          id="title-input"
-          type="text"
-          (keydown)="titleValidator($event)"
-          [placeholder]="'E.g. ' +
-          (selectedType === 'TV Show' ? 'Supernatural' : 'Rush Hour')"
-          formControlName="title">
+        <input id="title-input" type="text" (keydown)="titleValidator($event)" [placeholder]="'E.g. ' +
+          (selectedType === 'TV Show' ? 'Supernatural' : 'Rush Hour')" formControlName="title">
       </div>
 
       <!-- Year: -->
       <div class="form-group year-section">
-        <label
-          class="field-name"
-          for="year-input">
+        <label class="field-name" for="year-input">
           <span>Year Released:</span>
         </label>
 
-        <input
-          id="year-input"
-          type="number"
-          [max]="Date" [min]="1950"
-          (keydown)="numValidator($event)"
-          [placeholder]="'E.g. ' +
-          (selectedType === 'TV Show' ? '2005' : '2007')"
-          formControlName="yearReleased">
+        <input id="year-input" type="number" [max]="Date" [min]="1950" (keydown)="numValidator($event)" [placeholder]="'E.g. ' +
+          (selectedType === 'TV Show' ? '2005' : '2007')" formControlName="yearReleased">
       </div>
     </div>
 
     <!-- Genre(s): -->
     <div class="form-group genre-section">
-      <label
-        class="field-name"
-        for="genre-input">
+      <label class="field-name" for="genre-input">
         <span>Genre(s):</span>
       </label>
 
-      <input
-        id="genre-input"
-        type="text"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. Action, ' +
+      <input id="genre-input" type="text" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. Action, ' +
         (selectedType === 'TV Show'
-        ? 'Drama, Horror' : 'Adventure, Comedy')"
-        formControlName="genre">
+        ? 'Drama, Horror' : 'Adventure, Comedy')" formControlName="genre">
     </div>
 
     <!-- Movie Only: -->
     @if (selectedType === "Movie") {
     <div class="form-group sequence-section">
-      <label
-        class="field-name"
-        for="sequence-input">
+      <label class="field-name" for="sequence-input">
         <span>Movie Sequence:</span>
       </label><br>
 
-      <input
-        id="sequence-input"
-        type="number"
-        [max]="10000" [min]="1"
-        (keydown)="numValidator($event)"
-        placeholder="E.g. 3"
-        formControlName="movie_sequence">
+      <input id="sequence-input" type="number" [max]="10000" [min]="1" (keydown)="numValidator($event)"
+        placeholder="E.g. 3" formControlName="movie_sequence">
     </div>
     }
 
@@ -101,35 +68,21 @@
     <div class="inline-duo">
       @if (selectedType === "TV Show") {
       <div class="form-group season-section">
-        <label
-          class="field-name"
-          for="season-input">
+        <label class="field-name" for="season-input">
           <span>Seasons:</span>
         </label>
 
-        <input
-          id="season-input"
-          type="number"
-          [max]="1000" [min]="1"
-          (keydown)="numValidator($event)"
-          placeholder="E.g. 15"
-          formControlName="seasons">
+        <input id="season-input" type="number" [max]="1000" [min]="1" (keydown)="numValidator($event)"
+          placeholder="E.g. 15" formControlName="seasons">
       </div>
 
       <div class="form-group episode-section">
-        <label
-          class="field-name"
-          for="episodes-input">
+        <label class="field-name" for="episodes-input">
           <span>Total Episodes:</span>
         </label>
 
-        <input
-          id="episodes-input"
-          type="number"
-          [max]="10000" [min]="1"
-          (keydown)="numValidator($event)"
-          placeholder="E.g. 327"
-          formControlName="total_episodes">
+        <input id="episodes-input" type="number" [max]="10000" [min]="1" (keydown)="numValidator($event)"
+          placeholder="E.g. 327" formControlName="total_episodes">
       </div>
       }
     </div>
@@ -140,10 +93,7 @@
       <div class="radio-grid">
         @for (options of ogSources; track options) {
         <label class="radio-item">
-          <input
-            type="radio"
-            [value]="options"
-            formControlName="based_on">
+          <input type="radio" [value]="options" formControlName="based_on">
           <span>{{ options }}</span>
         </label>
         }
@@ -153,9 +103,7 @@
     <!-- Creator: -->
     @if (selectedBasedOn && selectedBasedOn !== "None") {
     <div class="form-group creator-section">
-      <label
-        class="field-name"
-        for="creator-input">
+      <label class="field-name" for="creator-input">
         <span>Creator:</span>
       </label>
 
@@ -186,13 +134,10 @@
       <label class="field-name">Maturity Rating:</label>
 
       @for (options of
-        (selectedType === "TV Show" ? tvRatings : movieRatings);
-        track options) {
+      (selectedType === "TV Show" ? tvRatings : movieRatings);
+      track options) {
       <label>
-        <input
-          type="radio"
-          [value]="options"
-          [formControlName]="selectedType === 'TV Show'
+        <input type="radio" [value]="options" [formControlName]="selectedType === 'TV Show'
           ? 'tv_rating' : 'mpaa_rating'">
         <span>{{ options }}</span>
       </label>
@@ -203,65 +148,39 @@
     <!-- Credits: -->
     <div class="form-group producer-section">
       <label class="field-name" for="producer-input">Producer(s):</label>
-      <input
-        id="producer-input"
-        type="text"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. ' + (selectedType === 'TV Show'
+      <input id="producer-input" type="text" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. ' + (selectedType === 'TV Show'
         ? 'Eric Kripke, McG, Robert Singer'
-        : 'Jay Stern, Jonathan Glickman, Roger Birnbaum')"
-        formControlName="producer">
+        : 'Jay Stern, Jonathan Glickman, Roger Birnbaum')" formControlName="producer">
     </div>
 
     <div class="form-group director-section">
       <label class="field-name" for="director-input">Director(s):</label>
-      <input
-        id="director-input"
-        type="text"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. ' + (selectedType === 'TV Show'
+      <input id="director-input" type="text" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. ' + (selectedType === 'TV Show'
         ? 'Kim Manners, Philip Sgriccia, Robert Singer'
         : 'Brett Ratner')" formControlName="director">
     </div>
 
     <div class="form-group writer-section">
       <label class="field-name" for="writer-input">Writer(s):</label>
-      <input
-        id="writer-input"
-        type="text"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. ' + (selectedType === 'TV Show'
+      <input id="writer-input" type="text" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. ' + (selectedType === 'TV Show'
         ? 'Andrew Dabb, Eric Kripke, Jeremy Carver, Sera Gamble'
-        : 'Jeff Nathanson')"
-        formControlName="writer">
+        : 'Jeff Nathanson')" formControlName="writer">
     </div>
 
     <div class="form-group starring-section">
       <label class="field-name" for="starring-input">Starring:</label>
-      <input
-        id="starring-input"
-        type="text"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. ' + (selectedType === 'TV Show'
+      <input id="starring-input" type="text" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. ' + (selectedType === 'TV Show'
         ? 'Jared Padalecki, Jensen Ackles, Misha Collins'
-        : 'Chris Tucker, Hiroyuki Sanada, Jackie Chan')"
-        formControlName="starring">
+        : 'Chris Tucker, Hiroyuki Sanada, Jackie Chan')" formControlName="starring">
     </div>
 
     <!-- Rating & Status: -->
     <div class="inline-duo">
       <!-- Viewer Rating: -->
       <div class="form-group viewRating-section">
-        <label
-          class="field-name"
-          for="viewRating-input">Viewer Rating:</label><br>
-        <input
-          id="viewRating-input"
-          type="number"
-          [max]="5" [min]="1"
-          (keydown)="numValidator($event)"
-          placeholder="E.g. 4"
-          formControlName="viewer_rating">
+        <label class="field-name" for="viewRating-input">Viewer Rating:</label><br>
+        <input id="viewRating-input" type="number" [max]="5" [min]="1" (keydown)="numValidator($event)"
+          placeholder="E.g. 4" formControlName="viewer_rating">
       </div>
 
       <div class="form-group watchStatus-section">
@@ -280,42 +199,25 @@
     <!-- Image URL: -->
     <div class="form-group imageUrl-section">
       <label class="field-name" for="imageUrl-input">Image URL:</label><br>
-      <input
-        id="imageUrl-input"
-        type="text"
-        (keydown)="imageURL_validator($event)"
-        placeholder="E.g. https://upload.wikimedia.org/wikipedia/image.png"
-        formControlName="image_url">
+      <input id="imageUrl-input" type="text" (keydown)="imageURL_validator($event)"
+        placeholder="E.g. https://upload.wikimedia.org/wikipedia/image.png" formControlName="image_url">
     </div>
 
     <!-- Notes: -->
     <div class="form-group note-section">
       <label class="field-name" for="note-input">Notes:</label><br>
-      <textarea
-        id="note-input"
-        maxlength="500"
-        (keydown)="notesValidator($event)"
-        [placeholder]=
-          "'Any thoughts on the ' +
-          (selectedType === 'TV Show' ? 'TV Show' : 'Movie') + '?...'"
-        formControlName="notes">
+      <textarea id="note-input" maxlength="500" (keydown)="notesValidator($event)" [placeholder]="'Any thoughts on the ' +
+          (selectedType === 'TV Show' ? 'TV Show' : 'Movie') + '?...'" formControlName="notes">
       </textarea>
     </div><br>
 
     <!-- Buttons: -->
     <div class="form-buttons">
-      <button
-        class="reset-btn"
-        type="reset"
-        title="Clear all fields of the form.">
+      <button class="reset-btn" type="reset" title="Clear all fields of the form.">
         <span>Reset</span>
       </button>
 
-      <button
-        class="submit-btn"
-        type="submit"
-        [title]=
-          "(isEditMode ? 'Update an existing' : 'Add a new') + ' game.'"
+      <button class="submit-btn" type="submit" [title]="(isEditMode ? 'Update an existing' : 'Add a new') + ' game.'"
         [disabled]="filmForm.invalid">
         <span>{{ isEditMode ? 'Update' : 'Add' }}</span>
       </button>

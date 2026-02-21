@@ -63,6 +63,18 @@ class FilmDataService {
     console.log("Generating new id. Now there are, ", this.films.length + 1);
     return this.films.length > 0 ? Math.max(...this.films.map(film => film.id)) + 1 : 1;
   }
+
+  preventDuplicate_title_year(
+    title: string,
+    year: number,
+    currentId?: number
+  ): boolean {
+    return this.films.some(f =>
+      f.title.trim().toLowerCase() === title.trim().toLowerCase() &&
+      f.yearReleased === year &&
+      f.id !== currentId
+    );
+  }
 }
 
 export default FilmDataService

@@ -136,7 +136,7 @@ export const MOCK_CONTENT: MyData[] = [
     is_started: true, is_finished: false,
     notes:
       "Stranger Things is thrilling, nostalgic, and emotionally engaging, blending childhood adventure " +
-      "with supernatural suspense. The  cast delivers standout performances, making each character " +
+      "with supernatural suspense. The cast delivers standout performances, making each character " +
       "memorable and relatable. Its mix of humour, horror, and heart creates a captivating series " +
       "that hooks viewers like myself from start to finish.",
     image_url: "assets/stranger-things.jpeg"

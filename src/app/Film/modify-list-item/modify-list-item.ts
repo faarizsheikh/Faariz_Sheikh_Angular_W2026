@@ -1,6 +1,6 @@
 // modify-list-item.ts:
 
-import {Component, numberAttribute, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -54,13 +54,13 @@ export class ModifyListItem implements OnInit {
       seasons: ['', [Validators.max(1000), Validators.min(1)]],
       total_episodes: ['', [Validators.max(10000), Validators.min(1)]],
       based_on: ['', [Validators.required]],
-      creator: ['', [this.preventWhitespace]],
+      creator: [''],
       streaming: ['', Validators.required],
       mpaa_rating: [''],
       tv_rating: [''],
       producer: ['', [Validators.required, this.preventWhitespace]],
       director: ['', [Validators.required, this.preventWhitespace]],
-      writer: ['',[ Validators.required, this.preventWhitespace]],
+      writer: ['', [Validators.required, this.preventWhitespace]],
       starring: ['', [Validators.required, this.preventWhitespace]],
       viewer_rating: ['', [Validators.required, Validators.max(5), Validators.min(1)]],
       is_started: [false],
@@ -99,8 +99,20 @@ export class ModifyListItem implements OnInit {
 
     const film: MyData = this.filmForm.getRawValue();
 
+    if (this.isEditMode) film.id = Number(this.route.snapshot.paramMap.get('id'));
+
+    if (
+      this.filmService.preventDuplicate_title_year(
+        film.title,
+        film.yearReleased,
+        this.isEditMode ? film.id : undefined
+      )
+    ) {
+      this.error = "A film with this title and year already exists.";
+      return;
+    }
+
     if (this.isEditMode) {
-      film.id = Number(this.route.snapshot.paramMap.get('id'));
       this.filmService.update(film).subscribe(() => {
         this.router.navigate(['/films']);
       });
@@ -145,7 +157,7 @@ export class ModifyListItem implements OnInit {
   credits_genre_validator(event: KeyboardEvent) {
     const invalidKeys =
       ['\\', '/', ':', ';', '_', '+', '=', '@', '#', '$', '%', '^', '&', '*',
-      '?', '!', '"', '\'', '|', '<', '>', '{', '}', '[', ']', '(', ')', '~', '`'];
+        '?', '!', '"', '\'', '|', '<', '>', '{', '}', '[', ']', '(', ')', '~', '`'];
     if (invalidKeys.includes(event.key)) {
       event.preventDefault();
     }
@@ -171,6 +183,4 @@ export class ModifyListItem implements OnInit {
   navBackToFilmList() {
     this.router.navigate(['/films']);
   }
-
-  protected readonly numberAttribute = numberAttribute;
 }
