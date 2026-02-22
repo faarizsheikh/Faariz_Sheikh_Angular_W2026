@@ -26,12 +26,7 @@
           <span>Title:</span>
         </label>
 
-        <input
-          id="title-input"
-          type="text"
-          maxlength="50"
-          (keydown)="titleValidator($event)"
-          [placeholder]="'E.g. ' +
+        <input id="title-input" type="text" maxlength="50" (keydown)="titleValidator($event)" [placeholder]="'E.g. ' +
           (selectedType === 'TV Show' ? 'Supernatural' : 'Rush Hour')" formControlName="title">
       </div>
 
@@ -41,13 +36,7 @@
           <span>Year Released:</span>
         </label>
 
-        <input
-          id="year-input"
-          type="number"
-          maxlength="4"
-          [max]="Date"
-          [min]="1950"
-          (keydown)="numValidator($event)"
+        <input id="year-input" type="number" maxlength="4" [max]="Date" [min]="1950" (keydown)="numValidator($event)"
           [placeholder]="'E.g. ' +
           (selectedType === 'TV Show' ? '2005' : '2007')" formControlName="yearReleased">
       </div>
@@ -59,12 +48,7 @@
         <span>Genre(s):</span>
       </label>
 
-      <input
-        id="genre-input"
-        type="text"
-        maxlength="100"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. Action, ' +
+      <input id="genre-input" type="text" maxlength="100" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. Action, ' +
         (selectedType === 'TV Show'
         ? 'Drama, Horror' : 'Adventure, Comedy')" formControlName="genre">
     </div>
@@ -98,12 +82,7 @@
           <span>Total Episodes:</span>
         </label>
 
-        <input
-          id="episodes-input"
-          type="number"
-          [max]="10000"
-          [min]="1"
-          (keydown)="numValidator($event)"
+        <input id="episodes-input" type="number" [max]="10000" [min]="1" (keydown)="numValidator($event)"
           placeholder="E.g. 327" formControlName="total_episodes">
       </div>
       }
@@ -129,12 +108,7 @@
         <span>Creator(s):</span>
       </label>
 
-      <input
-        id="creator-input"
-        type="text"
-        maxlength="100"
-        placeholder="E.g. Eric Kripke"
-        formControlName="creator">
+      <input id="creator-input" type="text" maxlength="100" placeholder="E.g. Eric Kripke" formControlName="creator">
     </div>
     }
 
@@ -171,48 +145,28 @@
     <!-- Credits: -->
     <div class="form-group producer-section">
       <label class="field-name" for="producer-input">Producer(s):</label>
-      <input
-        id="producer-input"
-        type="text"
-        maxlength="300"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. ' + (selectedType === 'TV Show'
+      <input id="producer-input" type="text" maxlength="300" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. ' + (selectedType === 'TV Show'
         ? 'Eric Kripke, McG, Robert Singer'
         : 'Jay Stern, Jonathan Glickman, Roger Birnbaum')" formControlName="producer">
     </div>
 
     <div class="form-group director-section">
       <label class="field-name" for="director-input">Director(s):</label>
-      <input
-        id="director-input"
-        type="text"
-        maxlength="300"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. ' + (selectedType === 'TV Show'
+      <input id="director-input" type="text" maxlength="300" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. ' + (selectedType === 'TV Show'
         ? 'Kim Manners, Philip Sgriccia, Robert Singer'
         : 'Brett Ratner')" formControlName="director">
     </div>
 
     <div class="form-group writer-section">
       <label class="field-name" for="writer-input">Writer(s):</label>
-      <input
-        id="writer-input"
-        type="text"
-        maxlength="300"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. ' + (selectedType === 'TV Show'
+      <input id="writer-input" type="text" maxlength="300" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. ' + (selectedType === 'TV Show'
         ? 'Andrew Dabb, Eric Kripke, Jeremy Carver, Sera Gamble'
         : 'Jeff Nathanson')" formControlName="writer">
     </div>
 
     <div class="form-group starring-section">
       <label class="field-name" for="starring-input">Starring:</label>
-      <input
-        id="starring-input"
-        type="text"
-        maxlength="300"
-        (keydown)="credits_genre_validator($event)"
-        [placeholder]="'E.g. ' + (selectedType === 'TV Show'
+      <input id="starring-input" type="text" maxlength="300" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. ' + (selectedType === 'TV Show'
         ? 'Jared Padalecki, Jensen Ackles, Misha Collins'
         : 'Chris Tucker, Hiroyuki Sanada, Jackie Chan')" formControlName="starring">
     </div>
@@ -249,11 +203,7 @@
     <!-- Notes: -->
     <div class="form-group note-section">
       <label class="field-name" for="note-input">Notes:</label><br>
-      <textarea
-        id="note-input"
-        maxlength="500"
-        (keydown)="notesValidator($event)"
-        [placeholder]="'Any thoughts on the ' +
+      <textarea id="note-input" maxlength="500" (keydown)="notesValidator($event)" [placeholder]="'Any thoughts on the ' +
           (selectedType === 'TV Show' ? 'TV Show' : 'Movie') + '?...'" formControlName="notes">
       </textarea>
     </div><br>
