@@ -26,7 +26,7 @@
           <span>Title:</span>
         </label>
 
-        <input id="title-input" type="text" maxlength="50" (keydown)="titleValidator($event)" [placeholder]="'E.g. ' +
+        <input id="title-input" type="text" maxlength="100" (keydown)="titleValidator($event)" [placeholder]="'E.g. ' +
           (selectedType === 'TV Show' ? 'Supernatural' : 'Rush Hour')" formControlName="title">
       </div>
 
@@ -48,7 +48,7 @@
         <span>Genre(s):</span>
       </label>
 
-      <input id="genre-input" type="text" maxlength="100" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. Action, ' +
+      <input id="genre-input" type="text" maxlength="150" (keydown)="credits_genre_validator($event)" [placeholder]="'E.g. Action, ' +
         (selectedType === 'TV Show'
         ? 'Drama, Horror' : 'Adventure, Comedy')" formControlName="genre">
     </div>
