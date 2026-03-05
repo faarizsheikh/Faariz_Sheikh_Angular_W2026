@@ -27,8 +27,7 @@
             ],
             "styles": [
               "src/styles.css"
-            ],
-            "baseHref": "/Faariz_Sheikh_Angular_W2026/"
+            ]
           },
           "configurations": {
             "production": {
@@ -68,9 +67,6 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
-        },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
